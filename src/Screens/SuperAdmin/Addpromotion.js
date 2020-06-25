@@ -5,10 +5,12 @@ import $ from 'jquery';
 import {
     Link
 } from "react-router-dom";
-import { Search, Delete, AddCircleOutline, Edit, ChatBubble, Flag, PhoneEnabled, InsertLink, ExitToApp } from '@material-ui/icons';
+import { Search, LibraryBooks } from '@material-ui/icons';
 import '../../admin.css';
+import { Checkbox, TextField, FormControl, MenuItem, Select } from '@material-ui/core';
+import { Form, Row, Col, Button, Modal } from 'react-bootstrap';
 
-export default class Promotions extends Component {
+export default class AddPromotion extends Component {
 
     constructor() {
         super();
@@ -34,8 +36,6 @@ export default class Promotions extends Component {
             if ($(".AllContent").width() <= 954) {
                 $(".Verification").css("display", "none")
                 $(".Personal_Detail").css("width", "100%")
-
-
             }
 
             if ($(".AllContent").width() > 954) {
@@ -47,7 +47,6 @@ export default class Promotions extends Component {
         else {
             $(".Verification").css("display", "")
             $(".Personal_Detail").css("width", "")
-
         }
     }
 
@@ -134,64 +133,84 @@ export default class Promotions extends Component {
                 <div id="For_SetOpacity" className="AllContent" style={{ width: "100%" }}>
                     <NavbarComp ONToggle={() => this.ONToggleFunc()} ONEXPAND={this.state.NavExpended} Notificate={() => this.setState({ Shownotification: !this.state.Shownotification })} SidebarToggle={() => this.ShowingSideBar()} ChatBar={() => this.ChatSidebarFunc()} SearchBar={() => this.ShowSearchBar()} ToggleBTN={() => this.setState({ CollapseNavbar: !this.state.CollapseNavbar })} />
                     <div style={{ padding: 20, paddingTop: 1 }}>
-                        <div style={{ width: "100%", background: "white", position: "relative", borderRadius: 10, overflow: "scroll", overflowY: "hidden", overflowX: "scroll" }}>
-                            <div className="TimeLine_header">
-                                <b>Promotions</b>
-                                <Link to="/AddPromotions"><button style={{ marginLeft: 20, padding: 4, paddingLeft: 15, paddingRight: 15, color: "white", background: "#6e00ff", border: "none", borderRadius: 20, outline: "none" }}>Create &nbsp;<AddCircleOutline /></button></Link>
-                                <button style={{ marginLeft: 20, padding: 4, paddingLeft: 15, paddingRight: 15, color: "white", background: "#ff5630", border: "none", borderRadius: 20, outline: "none" }}>Delete &nbsp;<Delete /></button>
-                            </div>
+                        <div style={{ width: "100%", background: "white", position: "relative", borderRadius: 10, display: "flex", flexDirection: "column", padding: 20 }}>
+                            <h3>Add Promotion</h3><br />
 
-                            <div style={{ padding: 20 }}>
-                                <table id="Pages">
-                                    <tr>
-                                        <td style={{ paddingLeft: 5, paddingRight: 5 }}><input type="checkbox" /></td>
-                                        <td style={{ textAlign : "left", width : 220}}>Title</td>
-                                        <td style={{ textAlign : "left", width : 110}}>ID</td>
-                                        <td>Code</td>
-                                        <td>Discount</td>
-                                        <td>Expires At</td>
-                                        <td>Usage</td>
-                                        <td>isActive</td>
-                                    </tr>
-                                    <tr>
-                                        <td style={{ paddingLeft: 5, paddingRight: 5 }}><input type="checkbox" /></td>
-                                        <td><b style={{ color: "#375591" }}>Startup Promo</b><br />
-                                            <Link style={{ color: "skyblue" }}>Edit</Link>&nbsp;|&nbsp;<Link style={{ color: "brown" }}>Delete</Link>
-                                        </td>
-                                        <td style={{ textAlign : "left", width : 110}}>1</td>
-                                        <td>12345</td>
-                                        <td>100.00%</td>
-                                        <td>2020-07-19</td>
-                                        <td>2/1 (200%)</td>
-                                        <td>Yes</td>
-                                    </tr>
-                                    <tr>
-                                        <td style={{ paddingLeft: 5, paddingRight: 5 }}><input type="checkbox" /></td>
-                                        <td><b style={{ color: "#375591" }}>Startup Promo</b><br />
-                                            <Link style={{ color: "skyblue" }}>Edit</Link>&nbsp;|&nbsp;<Link style={{ color: "brown" }}>Delete</Link>
-                                        </td>
-                                        <td style={{ textAlign : "left", width : 110}}>1</td>
-                                        <td>12345</td>
-                                        <td>100.00%</td>
-                                        <td>2020-07-19</td>
-                                        <td>2/1 (200%)</td>
-                                        <td>Yes</td>
-                                    </tr>
-                                    <tr>
-                                        <td style={{ paddingLeft: 5, paddingRight: 5 }}><input type="checkbox" /></td>
-                                        <td><b style={{ color: "#375591" }}>Startup Promo</b><br />
-                                            <Link style={{ color: "skyblue" }}>Edit</Link>&nbsp;|&nbsp;<Link style={{ color: "brown" }}>Delete</Link>
-                                        </td>
-                                        <td style={{ textAlign : "left", width : 110}}>1</td>
-                                        <td>12345</td>
-                                        <td>100.00%</td>
-                                        <td>2020-07-19</td>
-                                        <td>2/1 (200%)</td>
-                                        <td>Yes</td>
-                                    </tr>
-                                </table>
+                            <div style={{ display: "flex", width: 500, justifyContent: "space-between", alignItems: "center" }}>
+                                <Form.Label>Apply discount to</Form.Label>
+                                <Form.Group controlId="exampleForm.ControlSelect1" style={{ width: "60%" }}>
+                                    <Form.Control as="select">
+                                        <option>Signle job posting</option>
+                                        <option>other</option>
+                                    </Form.Control>
+                                </Form.Group>
                             </div>
-
+                            <div style={{ display: "flex", width: 500, justifyContent: "space-between", alignItems: "center" }}>
+                                <Form.Label>Discount title</Form.Label>
+                                <Form.Group controlId="exampleForm.ControlInput1" style={{ width: "60%" }}>
+                                    <Form.Control type="text" />
+                                </Form.Group>
+                            </div>
+                            <div style={{ display: "flex", width: 500, justifyContent: "space-between", alignItems: "center" }}>
+                                <Form.Label>Code</Form.Label>
+                                <Form.Group controlId="exampleForm.ControlInput1" style={{ width: "60%" }}>
+                                    <Form.Control type="text" />
+                                </Form.Group>
+                            </div>
+                            <div style={{ display: "flex", width: 500, justifyContent: "space-between", alignItems: "center" }}>
+                                <Form.Label>Discount Value</Form.Label>
+                                <Form.Group controlId="exampleForm.ControlInput1" style={{ width: "60%" }}>
+                                    <Form.Control type="text" />
+                                </Form.Group>
+                            </div>
+                            <div style={{ display: "flex", width: 500, justifyContent: "space-between", alignItems: "center" }}>
+                                <Form.Label>Discount type</Form.Label>
+                                <Form.Group controlId="exampleForm.ControlSelect1" style={{ width: "60%" }}>
+                                    <Form.Control as="select">
+                                        <option>percentage %</option>
+                                        <option>other</option>
+                                    </Form.Control>
+                                </Form.Group>
+                            </div>
+                            <div style={{ display: "flex", width: 500, justifyContent: "space-between", alignItems: "center" }}>
+                                <Form.Label>Currency</Form.Label>
+                                <Form.Group controlId="exampleForm.ControlSelect1" style={{ width: "60%" }}>
+                                    <Form.Control as="select">
+                                        <option>$ United States dollar</option>
+                                        <option>Rs Pakistani Rupees</option>
+                                        <option>INR Indian Rupees</option>
+                                    </Form.Control>
+                                </Form.Group>
+                            </div>
+                            <div style={{ display: "flex", width: 500, justifyContent: "space-between", alignItems: "center" }}>
+                                <Form.Label>Expiration Date</Form.Label>
+                                <Form.Group controlId="exampleForm.ControlInput1" style={{ width: "60%" }}>
+                                    <Form.Control type="date" />
+                                </Form.Group>
+                            </div>
+                            <div style={{ display: "flex", width: 500, justifyContent: "space-between", alignItems: "center" }}>
+                                <Form.Label>Used</Form.Label>
+                                <Form.Group controlId="exampleForm.ControlInput1" style={{ width: "60%" }}>
+                                    <Form.Control type="text" />
+                                </Form.Group>
+                            </div>
+                            <div style={{ display: "flex", width: 500, justifyContent: "space-between", alignItems: "center" }}>
+                                <Form.Label>Max uses</Form.Label>
+                                <Form.Group controlId="exampleForm.ControlInput1" style={{ width: "60%" }}>
+                                    <Form.Control type="text" />
+                                </Form.Group>
+                            </div>
+                            <div style={{ display: "flex", width: 500, justifyContent: "space-between", alignItems: "center" }}>
+                                <Form.Label>is Active</Form.Label>
+                                <div style={{ display: "flex", flexDirection: "row", alignItems: "center", textAlign: "left" }}>
+                                    <Checkbox
+                                        size="small"
+                                        inputProps={{ 'aria-label': 'checkbox with small size' }}
+                                    />
+                                    <span>Yes</span>
+                                </div>
+                            </div>
+                            
                         </div>
                     </div>
                     <BottomTab />

@@ -43,6 +43,8 @@ import SuperAdminAddEmailTemplate from './Screens/SuperAdmin/AddEmailTemplate';
 import SuperAdminEditEmailTemplate from './Screens/SuperAdmin/EditEmailTemplate';
 
 import SuperAdminPromotions from './Screens/SuperAdmin/Promotions';
+import SuperAdminAddPromotions from './Screens/SuperAdmin/Addpromotion';
+
 import SuperAdminEmailTempList from './Screens/SuperAdmin/EmailTempList';
 
 
@@ -192,6 +194,9 @@ function App() {
       <SuperAdminRoute path='/AllUsers' component={SuperAdminAllUsers} />
       <SuperAdminRoute path='/Invoice' component={SuperAdminInvoiceDesign} />
       <SuperAdminRoute path='/Promotions' component={SuperAdminPromotions} />
+
+      <SuperAdminRoute path='/AddPromotions' component={SuperAdminAddPromotions} />
+
       <SuperAdminRoute path='/EmailSubscribers' component={SuperAdminEmailSubscribers} />
       <SuperAdminRoute path='/Feedback' component={SuperAdminFeedback} />
       <SuperAdminRoute path='/FeedbackReply' component={SuperAdminFeedbackReply} />
