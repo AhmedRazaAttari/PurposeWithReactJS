@@ -6,7 +6,7 @@ import {
     Link
 } from "react-router-dom";
 import { Checkbox, TextField, FormControl, MenuItem, Select } from '@material-ui/core';
-import { Search, Delete, Check, AddCircleOutline, Edit, RemoveRedEye, Block, Flag, PhoneEnabled, InsertLink, ExitToApp, Mail, AssignmentInd } from '@material-ui/icons';
+import { Search, Delete, Person, AddCircleOutline, Edit, RemoveRedEye, Block, Flag, PhoneEnabled, InsertLink, ExitToApp, Mail, AssignmentInd, PersonAddDisabled } from '@material-ui/icons';
 import { Modal, Form, Button } from 'react-bootstrap'
 import first from '../../assets/images/Chats/first.jpg';
 import Second from '../../assets/images/Chats/Second.jpg';
@@ -204,7 +204,7 @@ export default class AllUsers extends Component {
                                 <table id="AllUserTable">
                                     <tr className="heading">
                                         <td></td>
-                                        <td style={{ width: 170 }}>Name</td>
+                                        <td >Name</td>
                                         <td style={{ width: 150 }}>Email</td>
                                         <td style={{ fontSize: 14, width: 150 }}>Phone</td>
                                         <td>Role</td>
@@ -218,7 +218,7 @@ export default class AllUsers extends Component {
                                     </tr>
                                     <tr>
                                         <td style={{ paddingLeft: 10, paddingRight: 10 }}><input type="checkbox" /></td>
-                                        <td style={{ display: "flex", alignItems: "center", marginTop: 8 }}>
+                                        <td style={{ display: "flex", alignItems: "center", marginTop: 22, width : 170 }}>
                                             <div>
                                                 <img src={first} style={{ width: 35, height: 35, borderRadius: "100%" }} />
                                             </div>
@@ -233,13 +233,13 @@ export default class AllUsers extends Component {
                                         <td>192.55.20.11</td>
                                         <td>US</td>
                                         <td>Free</td>
-                                        <td><div className="BlockBtn"><Block /></div></td>
+                                        <td><div className="BlockBtn"><Person /></div></td>
                                         <td><div className="ModalBtn" onClick={() => this.setState({ UserModal: !this.state.UserModal })}><RemoveRedEye /></div></td>
                                         <td><div className="ModalBtn" onClick={() => this.setState({ UserModal: !this.state.UserModal })}><RemoveRedEye /></div></td>
                                     </tr>
                                     <tr>
                                         <td style={{ paddingLeft: 10, paddingRight: 10 }}><input type="checkbox" /></td>
-                                        <td style={{ display: "flex", alignItems: "center", marginTop: 8 }}>
+                                        <td style={{ display: "flex", alignItems: "center", marginTop: 22, width : 170 }}>
                                             <div>
                                                 <img src={Second} style={{ width: 35, height: 35, borderRadius: "100%" }} />
                                             </div>
@@ -254,13 +254,13 @@ export default class AllUsers extends Component {
                                         <td>192.55.20.11</td>
                                         <td>US</td>
                                         <td>Free</td>
-                                        <td><div className="BlockBtn"><Block /></div></td>
+                                        <td><div className="BlockBtn"><Person /></div></td>
                                         <td><div className="ModalBtn" onClick={() => this.setState({ UserModal: !this.state.UserModal })}><RemoveRedEye /></div></td>
                                         <td><div className="ModalBtn" onClick={() => this.setState({ UserModal: !this.state.UserModal })}><RemoveRedEye /></div></td>
                                     </tr>
                                     <tr>
                                         <td style={{ paddingLeft: 10, paddingRight: 10 }}><input type="checkbox" /></td>
-                                        <td style={{ display: "flex", alignItems: "center", marginTop: 8 }}>
+                                        <td style={{ display: "flex", alignItems: "center", marginTop: 22, width : 170 }}>
                                             <div>
                                                 <img src={Third} style={{ width: 35, height: 35, borderRadius: "100%" }} />
                                             </div>
@@ -275,13 +275,13 @@ export default class AllUsers extends Component {
                                         <td>192.55.20.11</td>
                                         <td>Australia</td>
                                         <td>Gold</td>
-                                        <td><div className="BlockBtn"><Block /></div></td>
+                                        <td><div className="BlockBtn"><PersonAddDisabled /></div></td>
                                         <td><div className="ModalBtn" onClick={() => this.setState({ UserModal: !this.state.UserModal })}><RemoveRedEye /></div></td>
                                         <td><div className="ModalBtn" onClick={() => this.setState({ UserModal: !this.state.UserModal })}><RemoveRedEye /></div></td>
                                     </tr>
                                     <tr>
                                         <td style={{ paddingLeft: 10, paddingRight: 10 }}><input type="checkbox" /></td>
-                                        <td style={{ display: "flex", alignItems: "center", marginTop: 8 }}>
+                                        <td style={{ display: "flex", alignItems: "center", marginTop: 22, width : 170 }}>
                                             <div>
                                                 <img src={Fourth} style={{ width: 35, height: 35, borderRadius: "100%" }} />
                                             </div>
@@ -296,13 +296,13 @@ export default class AllUsers extends Component {
                                         <td>192.55.20.11</td>
                                         <td></td>
                                         <td>Silver</td>
-                                        <td><div className="BlockBtn"><Block /></div></td>
+                                        <td><div className="BlockBtn"><PersonAddDisabled /></div></td>
                                         <td><div className="ModalBtn" onClick={() => this.setState({ UserModal: !this.state.UserModal })}><RemoveRedEye /></div></td>
                                         <td><div className="ModalBtn" onClick={() => this.setState({ UserModal: !this.state.UserModal })}><RemoveRedEye /></div></td>
                                     </tr>
                                     <tr>
                                         <td style={{ paddingLeft: 10, paddingRight: 10 }}><input type="checkbox" /></td>
-                                        <td style={{ display: "flex", alignItems: "center", marginTop: 8 }}>
+                                        <td style={{ display: "flex", alignItems: "center", marginTop: 22, width : 170 }}>
                                             <div>
                                                 <img src={Fifth} style={{ width: 35, height: 35, borderRadius: "100%" }} />
                                             </div>
@@ -317,13 +317,13 @@ export default class AllUsers extends Component {
                                         <td>192.55.20.11</td>
                                         <td></td>
                                         <td></td>
-                                        <td><div className="BlockBtn"><Block /></div></td>
+                                        <td><div className="BlockBtn"><PersonAddDisabled /></div></td>
                                         <td><div className="ModalBtn" onClick={() => this.setState({ UserModal: !this.state.UserModal })}><RemoveRedEye /></div></td>
                                         <td><div className="ModalBtn" onClick={() => this.setState({ UserModal: !this.state.UserModal })}><RemoveRedEye /></div></td>
                                     </tr>
                                     <tr>
                                         <td style={{ paddingLeft: 10, paddingRight: 10 }}><input type="checkbox" /></td>
-                                        <td style={{ display: "flex", alignItems: "center", marginTop: 8 }}>
+                                        <td style={{ display: "flex", alignItems: "center", marginTop: 22, width : 170}}>
                                             <div>
                                                 <img src={Fifth} style={{ width: 35, height: 35, borderRadius: "100%" }} />
                                             </div>
@@ -338,7 +338,7 @@ export default class AllUsers extends Component {
                                         <td>192.55.20.11</td>
                                         <td></td>
                                         <td></td>
-                                        <td><div className="BlockBtn"><Block /></div></td>
+                                        <td><div className="BlockBtn"><Person/></div></td>
                                         <td><div className="ModalBtn" onClick={() => this.setState({ UserModal: !this.state.UserModal })}><RemoveRedEye /></div></td>
                                         <td><div className="ModalBtn" onClick={() => this.setState({ UserModal: !this.state.UserModal })}><RemoveRedEye /></div></td>
                                     </tr>
