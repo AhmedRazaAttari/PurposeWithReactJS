@@ -10,7 +10,7 @@ import '../../admin.css';
 import { Checkbox, TextField, FormControl, MenuItem, Select } from '@material-ui/core';
 import { Form, Row, Col, Button, Modal } from 'react-bootstrap';
 
-export default class FeedbackReply extends Component {
+export default class AddEmailTemplate extends Component {
 
     constructor() {
         super();
@@ -134,53 +134,7 @@ export default class FeedbackReply extends Component {
                     <NavbarComp ONToggle={() => this.ONToggleFunc()} ONEXPAND={this.state.NavExpended} Notificate={() => this.setState({ Shownotification: !this.state.Shownotification })} SidebarToggle={() => this.ShowingSideBar()} ChatBar={() => this.ChatSidebarFunc()} SearchBar={() => this.ShowSearchBar()} ToggleBTN={() => this.setState({ CollapseNavbar: !this.state.CollapseNavbar })} />
                     <div style={{ padding: 20, paddingTop: 1 }}>
                         <div style={{ width: "100%", background: "white", position: "relative", borderRadius: 10, display: "flex", flexDirection: "column", padding: 20 }}>
-                            <h3>Feedback / suggestion Reply</h3><br />
-                            <div style={{ display: "flex", width: 500, justifyContent: "space-between", alignItems: "center" }}>
-                                <Form.Label>Sender Name</Form.Label>
-                                <Form.Group controlId="exampleForm.ControlInput1" style={{ width: "60%" }}>
-                                    <Form.Control placeholder="John" />
-                                </Form.Group>
-                            </div>
-                            <div style={{ display: "flex", width: 500, justifyContent: "space-between", alignItems: "center" }}>
-                                <Form.Label>Sender Email</Form.Label>
-                                <Form.Group controlId="exampleForm.ControlInput1" style={{ width: "60%" }}>
-                                    <Form.Control placeholder="test@example.com" />
-                                </Form.Group>
-                            </div>
-                            <div style={{ display: "flex", width: 500, justifyContent: "space-between", alignItems: "center" }}>
-                                <Form.Label>Enquiry/Feedback Type</Form.Label>
-                                <Form.Group controlId="exampleForm.ControlSelect1" style={{ width: "60%" }}>
-                                    <Form.Control as="select">
-                                        <option>feature improvement</option>
-                                        <option>general inquiry</option>
-                                        <option>payment issue</option>
-                                        <option>Sales info</option>
-                                        <option>business inquiry</option>
-                                    </Form.Control>
-                                </Form.Group>
-                            </div>
-                            <div style={{ display: "flex", width: 500, justifyContent: "space-between", alignItems: "center" }}>
-                                <Form.Label>Subject</Form.Label>
-                                <Form.Group controlId="exampleForm.ControlInput1" style={{ width: "60%" }}>
-                                    <Form.Control placeholder="Need new feature" />
-                                </Form.Group>
-                            </div>
-                            <div style={{ display: "flex", width: 500, justifyContent: "space-between", alignItems: "center" }}>
-                                <Form.Label>From email</Form.Label>
-                                <Form.Group controlId="exampleForm.ControlInput1" style={{ width: "60%" }}>
-                                    <Form.Control type="email" placeholder="noreply@company.com" />
-                                </Form.Group>
-                            </div>
-                            <div style={{ display: "flex", justifyContent: "space-between" }}>
-                                <Form.Label>Body Text</Form.Label>
-                                <div style={{ display: "flex", flexDirection: "column", width: "77%" }}>
-                                    <div style={{ display: "flex", flexDirection: "row", marginBottom: 10 }}>
-                                        <button><LibraryBooks />&nbsp; Insert Variable</button>
-                                        <button><Search />&nbsp; Preview</button>
-                                    </div>
-                                    <Form.Control as="textarea" rows="6" />
-                                </div>
-                            </div>
+                            <h3>Payment Method</h3>
                         </div>
                     </div>
                     <BottomTab />
