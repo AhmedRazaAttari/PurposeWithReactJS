@@ -1,0 +1,104 @@
+.admintabs{
+    width : 260px;
+    margin: 0 auto;
+    background: white;
+    border-radius : 20px;
+}
+.admintabs ul li {
+    list-style: none;
+    height: 40px;
+    width: 100%;
+    margin-top: 7px;
+    padding: 8px;
+}
+.admintabs ul li a{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 40px;
+    padding: 7px;
+    color : black;
+    text-decoration: none;
+}
+.admintabs ul li a span{
+    width: 110px;
+    display: flex;
+    align-items: center;
+    /* justify-content: space-around; */
+}
+.admintabs ul li:hover a{
+    background: rgb(52, 91, 209);
+    color: white;
+}
+.admintabs ul{
+    margin-left: -20px;
+    width: 100%;
+    /* height: 300px; */
+    text-align: left;
+}
+td{
+    border: 1px solid rgb(219, 214, 214);
+    text-align: center;
+    color: rgb(116, 106, 106);
+    font-size: 15px;
+}
+.heading td{
+    font-size: 14px;
+}
+
+.BlockBtn {
+  height: 40px;
+  width: 40px;
+  border-radius: 100%;
+  background: rgb(134, 216, 28);
+  padding : 6px;
+  text-align: center;
+  cursor: pointer;
+}
+.BlockBtn:hover{
+  background: rgb(85, 85, 97);
+  color: white;
+}
+.UserModal td{
+    border: none;
+}
+
+#Pages{
+    width: 100%;
+}
+#Pages td{
+    text-align: left;
+}
+#Pages  td{
+    border: none;
+}
+#Pages tr{
+    height: 60px;
+}
+
+#EmailSubscriber td{
+    border : none;
+}
+
+#Pages{
+    width : 100%;
+    min-width : 800px;
+}
+#AllUserTable {
+    width : 100%;
+    min-width : 800px;
+}
+#InvoiceTable {
+    width : 100%;
+    min-width : 650px;
+}
+#InvoiceTable tr{
+    height: 60px;
+}
+#InvoiceTable td{
+    border : none
+}
+#AllUserTable td{
+    border : none
+}
