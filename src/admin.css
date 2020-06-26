@@ -64,6 +64,12 @@ td{
     border: none;
 }
 
+#Billing{
+    width: 50%;
+}
+#Billing td{
+    border: none;
+}
 #Pages{
     width: 100%;
 }
@@ -101,4 +107,11 @@ td{
 }
 #AllUserTable td{
     border : none
+}
+
+
+@media screen and (max-width: 800px) {
+    #Billing{
+        width: 100%;
+    }
 }

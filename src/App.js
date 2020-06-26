@@ -39,13 +39,17 @@ import SuperAdminInvoiceDesign from './Screens/SuperAdmin/Invoice';
 import SuperAdminEmailSubscribers from './Screens/SuperAdmin/EmailSubscribers';
 import SuperAdminFeedback from './Screens/SuperAdmin/Feedback';
 import SuperAdminFeedbackReply from './Screens/SuperAdmin/FeedbackReply';
+import SuperAdminEmailTempList from './Screens/SuperAdmin/EmailTempList';
 import SuperAdminAddEmailTemplate from './Screens/SuperAdmin/AddEmailTemplate';
 import SuperAdminEditEmailTemplate from './Screens/SuperAdmin/EditEmailTemplate';
-
 import SuperAdminPromotions from './Screens/SuperAdmin/Promotions';
 import SuperAdminAddPromotions from './Screens/SuperAdmin/Addpromotion';
+import SuperAdminBilling from './Screens/SuperAdmin/Billing';
 
-import SuperAdminEmailTempList from './Screens/SuperAdmin/EmailTempList';
+
+import SuperAdminSettings from './Screens/SuperAdmin/Settings';
+
+
 
 
 
@@ -194,15 +198,17 @@ function App() {
       <SuperAdminRoute path='/AllUsers' component={SuperAdminAllUsers} />
       <SuperAdminRoute path='/Invoice' component={SuperAdminInvoiceDesign} />
       <SuperAdminRoute path='/Promotions' component={SuperAdminPromotions} />
-
       <SuperAdminRoute path='/AddPromotions' component={SuperAdminAddPromotions} />
-
       <SuperAdminRoute path='/EmailSubscribers' component={SuperAdminEmailSubscribers} />
       <SuperAdminRoute path='/Feedback' component={SuperAdminFeedback} />
       <SuperAdminRoute path='/FeedbackReply' component={SuperAdminFeedbackReply} />
       <SuperAdminRoute path='/EmailTemplateList' component={SuperAdminEmailTempList} />
       <SuperAdminRoute path='/AddEmailTemplate' component={SuperAdminAddEmailTemplate} />
       <SuperAdminRoute path='/EditEmailTemplate' component={SuperAdminEditEmailTemplate} />
+      <SuperAdminRoute path='/Billing' component={SuperAdminBilling} />
+
+      <SuperAdminRoute path='/Settings' component={SuperAdminSettings} />
+
 
 
 

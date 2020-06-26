@@ -181,6 +181,10 @@ export default class FeedbackReply extends Component {
                                     <Form.Control as="textarea" rows="6" />
                                 </div>
                             </div>
+                            <br />
+                            <div style={{ display: "flex", alignSelf: "flex-end" }}>
+                                <Button variant="primary">Send Reply</Button>&nbsp;
+                            </div>
                         </div>
                     </div>
                     <BottomTab />

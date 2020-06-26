@@ -135,24 +135,24 @@ export default class AddEmailTemplate extends Component {
                     <div style={{ padding: 20, paddingTop: 1 }}>
                         <div style={{ width: "100%", background: "white", position: "relative", borderRadius: 10, display: "flex", flexDirection: "column", padding: 20 }}>
                             <h3>Add Email Template</h3><br />
-                            <div style={{ display: "flex", width: 500, justifyContent: "space-between", alignItems: "center" }}>
+                            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap : "wrap" }}>
                                 <Form.Label>Parent Template</Form.Label>
-                                <Form.Group controlId="exampleForm.ControlSelect1" style={{ width: "60%" }}>
+                                <Form.Group controlId="exampleForm.ControlSelect1" style={{ width: "80%" }}>
                                     <Form.Control as="select">
                                         <option>task update template</option>
                                         <option>other</option>
                                     </Form.Control>
                                 </Form.Group>
                             </div>
-                            <div style={{ display: "flex", width: 500, justifyContent: "space-between", alignItems: "center" }}>
+                            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap : "wrap" }}>
                                 <Form.Label>Template Name</Form.Label>
-                                <Form.Group controlId="exampleForm.ControlInput1" style={{ width: "60%" }}>
+                                <Form.Group controlId="exampleForm.ControlInput1" style={{ width: "80%" }}>
                                     <Form.Control placeholder="your task has been about to expire" />
                                 </Form.Group>
                             </div>
-                            <div style={{ display: "flex", width: 500, justifyContent: "space-between", alignItems: "center" }}>
+                            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap : "wrap" }}>
                                 <Form.Label>Activity</Form.Label>
-                                <div style={{ display: "flex", flexDirection: "row", alignItems: "center", textAlign : "left" }}>
+                                <div style={{ display: "flex", flexDirection: "row", alignItems: "center", textAlign : "left", width: "80%" }}>
                                     <Checkbox
                                         size="small"
                                         inputProps={{ 'aria-label': 'checkbox with small size' }}
@@ -160,48 +160,52 @@ export default class AddEmailTemplate extends Component {
                                     <span>Enable this email Notification</span>
                                 </div>
                             </div>
-                            <div style={{ display: "flex", width: 500, justifyContent: "space-between", alignItems: "center" }}>
+                            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap : "wrap" }}>
                                 <Form.Label>Sender Name</Form.Label>
-                                <Form.Group controlId="exampleForm.ControlInput1" style={{ width: "60%" }}>
+                                <Form.Group controlId="exampleForm.ControlInput1" style={{ width: "80%" }}>
                                     <Form.Control type="name" />
                                 </Form.Group>
                             </div>
-                            <div style={{ display: "flex", width: 500, justifyContent: "space-between", alignItems: "center" }}>
+                            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap : "wrap" }}>
                                 <Form.Label>Sender Email</Form.Label>
-                                <Form.Group controlId="exampleForm.ControlInput1" style={{ width: "60%" }}>
+                                <Form.Group controlId="exampleForm.ControlInput1" style={{ width: "80%" }}>
                                     <Form.Control type="email" />
                                 </Form.Group>
                             </div>
-                            <div style={{ display: "flex", width: 500, justifyContent: "space-between", alignItems: "center" }}>
+                            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap : "wrap" }}>
                                 <Form.Label>BCC</Form.Label>
-                                <Form.Group controlId="exampleForm.ControlInput1" style={{ width: "60%" }}>
+                                <Form.Group controlId="exampleForm.ControlInput1" style={{ width: "80%" }}>
                                     <Form.Control type="text" />
                                 </Form.Group>
                             </div>
-                            <div style={{ display: "flex", width: 500, justifyContent: "space-between", alignItems: "center" }}>
+                            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap : "wrap" }}>
                                 <Form.Label>Email title</Form.Label>
-                                <Form.Group controlId="exampleForm.ControlInput1" style={{ width: "60%" }}>
+                                <Form.Group controlId="exampleForm.ControlInput1" style={{ width: "80%" }}>
                                     <Form.Control type="email" />
                                 </Form.Group>
                             </div>
-                            <div style={{ display: "flex", width: 500, justifyContent: "space-between", alignItems: "center" }}>
+                            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap : "wrap" }}>
                                 <Form.Label>Email format</Form.Label>
-                                <Form.Group controlId="exampleForm.ControlSelect1" style={{ width: "60%" }}>
+                                <Form.Group controlId="exampleForm.ControlSelect1" style={{ width: "80%" }}>
                                     <Form.Control as="select">
                                         <option>Plain Text</option>
                                         <option>other</option>
                                     </Form.Control>
                                 </Form.Group>
                             </div>
-                            <div style={{ display: "flex", justifyContent: "space-between" }}>
+                            <div style={{ display: "flex", justifyContent: "space-between", flexWrap : "wrap" }}>
                                 <Form.Label>Body Text</Form.Label>
-                                <div style={{ display: "flex", flexDirection: "column", width : "77%" }}>
+                                <div style={{ display: "flex", flexDirection: "column", width : "80%" }}>
                                     <div style={{ display: "flex", flexDirection: "row", marginBottom : 10 }}>
-                                        <button><LibraryBooks />&nbsp; Insert Variable</button>
-                                        <button><Search />&nbsp; Preview</button>
+                                        <button style={{border : "2px solid skyblue", borderRadius : 15, background : "white", color : "blueviolet"}}><LibraryBooks />&nbsp; Insert Variable</button>
+                                        <button style={{border : "2px solid skyblue", borderRadius : 15, marginLeft : 10, background : "white", color : "blueviolet"}}><Search />&nbsp; Preview</button>
                                     </div>
                                     <Form.Control as="textarea" rows="6" />
                                 </div>
+                            </div>
+                            <br />
+                            <div style={{ display: "flex", alignSelf: "flex-end" }}>
+                                <Button variant="primary">Save Changes</Button>&nbsp;
                             </div>
                         </div>
                     </div>

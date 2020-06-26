@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
-import { NavbarComp, ChatSideBar, TabNotification, TextInput } from '../../component';
+import { NavbarComp, ChatSideBar, TabNotification, TextInput, Plans, Features } from '../../component';
 import { Sidebar, BottomTab } from '../../component/SuperAdminComponents';
 import $ from 'jquery';
 import {
     Link
 } from "react-router-dom";
-import { Search, LibraryBooks } from '@material-ui/icons';
-import '../../admin.css';
+import { Search, RemoveRedEye } from '@material-ui/icons';
 import { Checkbox, TextField, FormControl, MenuItem, Select } from '@material-ui/core';
 import { Form, Row, Col, Button, Modal } from 'react-bootstrap';
+import '../../admin.css';
 
-export default class AddPromotion extends Component {
+export default class Billing extends Component {
 
     constructor() {
         super();
@@ -129,92 +129,47 @@ export default class AddPromotion extends Component {
         return <div style={{ width: "100%", height: "100%" }}>
             <div id="For_SetOpacity" style={{ height: "55%", width: "100%", background: "rgb(60, 77, 235)", position: "absolute", borderBottomLeftRadius: 100 }}></div>
             <div style={{ display: "flex", width: "100%" }}>
-                {this.state.ShowSidebar && <Sidebar PagesBackground="rgb(52, 91, 209)" PagesColor="white" />}
+                {this.state.ShowSidebar && <Sidebar BillingBackground="rgb(52, 91, 209)" BillingColor="white" />}
                 <div id="For_SetOpacity" className="AllContent" style={{ width: "100%" }}>
                     <NavbarComp ONToggle={() => this.ONToggleFunc()} ONEXPAND={this.state.NavExpended} Notificate={() => this.setState({ Shownotification: !this.state.Shownotification })} SidebarToggle={() => this.ShowingSideBar()} ChatBar={() => this.ChatSidebarFunc()} SearchBar={() => this.ShowSearchBar()} ToggleBTN={() => this.setState({ CollapseNavbar: !this.state.CollapseNavbar })} />
                     <div style={{ padding: 20, paddingTop: 1 }}>
-                        <div style={{ width: "100%", background: "white", position: "relative", borderRadius: 10, display: "flex", flexDirection: "column", padding: 20 }}>
-                            <h3>Add Promotion</h3><br />
-
-                            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap" }}>
-                                <Form.Label>Apply discount to</Form.Label>
-                                <Form.Group controlId="exampleForm.ControlSelect1" style={{ width: "80%" }}>
-                                    <Form.Control as="select">
-                                        <option>Signle job posting</option>
-                                        <option>other</option>
-                                    </Form.Control>
-                                </Form.Group>
-                            </div>
-                            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap" }}>
-                                <Form.Label>Discount title</Form.Label>
-                                <Form.Group controlId="exampleForm.ControlInput1" style={{ width: "80%" }}>
-                                    <Form.Control type="text" />
-                                </Form.Group>
-                            </div>
-                            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap" }}>
-                                <Form.Label>Code</Form.Label>
-                                <Form.Group controlId="exampleForm.ControlInput1" style={{ width: "80%" }}>
-                                    <Form.Control type="text" />
-                                </Form.Group>
-                            </div>
-                            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap" }}>
-                                <Form.Label>Discount Value</Form.Label>
-                                <Form.Group controlId="exampleForm.ControlInput1" style={{ width: "80%" }}>
-                                    <Form.Control type="text" />
-                                </Form.Group>
-                            </div>
-                            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap" }}>
-                                <Form.Label>Discount type</Form.Label>
-                                <Form.Group controlId="exampleForm.ControlSelect1" style={{ width: "80%" }}>
-                                    <Form.Control as="select">
-                                        <option>percentage %</option>
-                                        <option>other</option>
-                                    </Form.Control>
-                                </Form.Group>
-                            </div>
-                            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap" }}>
-                                <Form.Label>Currency</Form.Label>
-                                <Form.Group controlId="exampleForm.ControlSelect1" style={{ width: "80%" }}>
-                                    <Form.Control as="select">
-                                        <option>$ United States dollar</option>
-                                        <option>Rs Pakistani Rupees</option>
-                                        <option>INR Indian Rupees</option>
-                                    </Form.Control>
-                                </Form.Group>
-                            </div>
-                            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap" }}>
-                                <Form.Label>Expiration Date</Form.Label>
-                                <Form.Group controlId="exampleForm.ControlInput1" style={{ width: "80%" }}>
-                                    <Form.Control type="date" />
-                                </Form.Group>
-                            </div>
-                            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap" }}>
-                                <Form.Label>Used</Form.Label>
-                                <Form.Group controlId="exampleForm.ControlInput1" style={{ width: "80%" }}>
-                                    <Form.Control type="text" />
-                                </Form.Group>
-                            </div>
-                            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap" }}>
-                                <Form.Label>Max uses</Form.Label>
-                                <Form.Group controlId="exampleForm.ControlInput1" style={{ width: "80%" }}>
-                                    <Form.Control type="text" />
-                                </Form.Group>
-                            </div>
-                            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap" }}>
-                                <Form.Label>is Active</Form.Label>
-                                <div style={{ display: "flex", flexDirection: "row", alignItems: "center", textAlign: "left", width: "80%" }}>
-                                    <Checkbox
-                                        size="small"
-                                        inputProps={{ 'aria-label': 'checkbox with small size' }}
-                                    />
-                                    <span>Yes</span>
+                        <div style={{ width: "100%", background: "white", position: "relative", borderRadius: 10, overflow: "scroll", overflowY: "hidden", overflowX: "scroll" }}>
+                            <div className="TimeLine_header" style={{ display: "flex", justifyContent: "space-between" }}>
+                                <div>
+                                    <b>Billing Method</b>
                                 </div>
                             </div>
-                            <br />
-                            <div style={{ display: "flex", alignSelf: "flex-end" }}>
-                                <Button variant="primary">Save Changes</Button>&nbsp;
-                            </div>
 
+                            <div style={{ padding: 20 }}>
+
+                                <table id="Billing">
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td><b>Active</b></td>
+                                        <td style={{ width: 150 }}><b>View/Edit</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td style={{ paddingLeft: 10, paddingRight: 10 }}><input type="checkbox" /></td>
+                                        <td>Free</td>
+                                        <td>true</td>
+                                        <td style={{ paddingLeft: 20, width: 150 }}><div className="ModalBtn" onClick={() => this.setState({ FreePlan: !this.state.FreePlan })}><RemoveRedEye /></div></td>
+                                    </tr>
+                                    <tr>
+                                        <td style={{ paddingLeft: 10, paddingRight: 10 }}><input type="checkbox" /></td>
+                                        <td>Indivisual Plan</td>
+                                        <td>false</td>
+                                        <td style={{ paddingLeft: 20, width: 150}}><div className="ModalBtn" onClick={() => this.setState({ IndividualPlan: !this.state.IndividualPlan })}><RemoveRedEye /></div></td>
+                                    </tr>
+                                    <tr>
+                                        <td style={{ paddingLeft: 10, paddingRight: 10 }}><input type="checkbox" /></td>
+                                        <td>Enterprise Plan</td>
+                                        <td>false</td>
+                                        <td style={{ paddingLeft: 20, width: 150 }}><div className="ModalBtn" onClick={() => this.setState({ EnterprisePlan: !this.state.EnterprisePlan })}><RemoveRedEye /></div></td>
+                                    </tr>
+                                </table>
+
+                            </div>
                         </div>
                     </div>
                     <BottomTab />
@@ -251,7 +206,78 @@ export default class AddPromotion extends Component {
             </div>
             {this.state.ShowChatSidebar && <ChatSideBar HideSidebar={() => this.hideChatSidebar()} />}
             {this.state.Shownotification && <TabNotification />}
+            {this.state.FreePlan && <Modal
+                show={this.state.FreePlan}
+                onHide={() => this.setState({ FreePlan: false })}
+                dialogClassName="modal-90w"
+                aria-labelledby="example-modal-sizes-title-sm"
+            >
+                <Modal.Header closeButton>
+                    <Modal.Title id="example-modal-sizes-title-sm">
+                        Free Plan
+                    </Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
 
+                    <div className="ForthSec_Handle">
+                        <Plans Heading="Free Plan" price="0" />
+                        <Features feature="Community support" />
+                        <Features feature="400+ pages" />
+                        <Features feature="100+ header variations" />
+                        <Button variant="light" style={{ background: "#75d3eb" }}>Get Started</Button><br />
+                    </div>
+
+                </Modal.Body>
+            </Modal>}
+            {this.state.IndividualPlan && <Modal
+                show={this.state.IndividualPlan}
+                onHide={() => this.setState({ IndividualPlan: false })}
+                dialogClassName="modal-90w"
+                aria-labelledby="example-modal-sizes-title-sm"
+            >
+                <Modal.Header closeButton>
+                    <Modal.Title id="example-modal-sizes-title-sm">
+                        Individual Plan
+                    </Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+
+                    <div className="ForthSec_Handle">
+                        <Plans Heading="Individual Plan" price="22" />
+                        <Features feature="Community support" />
+                        <Features feature="400+ pages" />
+                        <Features feature="100+ header variations" />
+                        <Features feature="20+ home page options" />
+                        <Button variant="light" style={{ background: "#75d3eb" }}>Get Started</Button><br />
+                    </div>
+
+                </Modal.Body>
+            </Modal>}
+            {this.state.EnterprisePlan && <Modal
+                show={this.state.EnterprisePlan}
+                onHide={() => this.setState({ EnterprisePlan: false })}
+                dialogClassName="modal-90w"
+                aria-labelledby="example-modal-sizes-title-sm"
+            >
+                <Modal.Header closeButton>
+                    <Modal.Title id="example-modal-sizes-title-sm">
+                        Enterprise Plan
+                    </Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+
+                    <div className="ForthSec_Handle">
+                        <Plans Heading="Enterprise Plan" price="99" />
+                        <Features feature="24/7 support" />
+                        <Features feature="400+ pages" />
+                        <Features feature="200+ header variations" />
+                        <Features feature="40+ home page options" />
+                        <Features feature="E-commerce" />
+                        <Button variant="light" style={{ background: "#75d3eb" }}>Get Started</Button><br />
+                    </div>
+
+                </Modal.Body>
+            </Modal>}
         </div>
     }
 }

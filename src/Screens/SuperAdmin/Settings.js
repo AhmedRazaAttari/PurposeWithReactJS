@@ -135,6 +135,8 @@ export default class AddEmailTemplate extends Component {
                     <div style={{ padding: 20, paddingTop: 1 }}>
                         <div style={{ width: "100%", background: "white", position: "relative", borderRadius: 10, display: "flex", flexDirection: "column", padding: 20 }}>
                             <h3>Payment Method</h3>
+                            <br />
+                            
                         </div>
                     </div>
                     <BottomTab />
