@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
-import { NavbarComp, ChatSideBar, TabNotification, TextInput } from '../../component';
-import { Sidebar, BottomTab } from '../../component/SuperAdminComponents';
+import { NavbarComp, Card, ChatSideBar, TabNotification, SideBarForSmallScreen } from '../../component';
+import { AddCircleOutline, Delete, Edit, RemoveRedEye, Flag, PhoneEnabled, MoreHoriz, Mail, AddCircle, Search, AssignmentInd, ExitToApp } from '@material-ui/icons';
 import $ from 'jquery';
+import { Sidebar, BottomTab } from '../../component/SuperAdminComponents';
 import {
     Link
 } from "react-router-dom";
-import { Search, Delete, Check, AddCircleOutline, Edit, ChatBubble, Flag, PhoneEnabled, InsertLink, ExitToApp } from '@material-ui/icons';
+import { Checkbox, TextField } from '@material-ui/core'
+import { Form, Row, Col, Modal, Button } from 'react-bootstrap';
+
 import '../../admin.css';
 
-export default class EmailTemplate extends Component {
+
+export default class UsersTask extends Component {
 
     constructor() {
         super();
@@ -26,6 +30,18 @@ export default class EmailTemplate extends Component {
         this.SetDivForREsponsive()
     }
 
+    openModal = () => {
+        this.setState({
+            open: true
+        });
+    };
+
+    hideModal = () => {
+        this.setState({
+            open: false
+        });
+    };
+
     SetDivForREsponsive() {
         const ShowSidebar = this.state.ShowSidebar
         console.log(ShowSidebar)
@@ -34,6 +50,8 @@ export default class EmailTemplate extends Component {
             if ($(".AllContent").width() <= 954) {
                 $(".Verification").css("display", "none")
                 $(".Personal_Detail").css("width", "100%")
+
+
             }
 
             if ($(".AllContent").width() > 954) {
@@ -45,6 +63,7 @@ export default class EmailTemplate extends Component {
         else {
             $(".Verification").css("display", "")
             $(".Personal_Detail").css("width", "")
+
         }
     }
 
@@ -65,6 +84,10 @@ export default class EmailTemplate extends Component {
             e.stopPropagation();
             console.log("SearchResult CLICKED")
         });
+
+        // if($(".sidebar").css("display","none")){
+        //     $(".Verification").css("display", "")
+        // }
 
         var _ = this;
 
@@ -123,104 +146,84 @@ export default class EmailTemplate extends Component {
         $("#For_SetOpacity").css("opacity", "1")
     }
 
+
     render() {
+
         return <div style={{ width: "100%", height: "100%" }}>
             <div id="For_SetOpacity" style={{ height: "55%", width: "100%", background: "rgb(60, 77, 235)", position: "absolute", borderBottomLeftRadius: 100 }}></div>
             <div style={{ display: "flex", width: "100%" }}>
-                {this.state.ShowSidebar && <Sidebar EmailTempBackground="rgb(52, 91, 209)" EmailTempColor="white" />}
+                {this.state.ShowSidebar && <Sidebar HomeBackground="rgb(52, 91, 209)" HomeColor="white" />}
                 <div id="For_SetOpacity" className="AllContent" style={{ width: "100%" }}>
                     <NavbarComp ONToggle={() => this.ONToggleFunc()} ONEXPAND={this.state.NavExpended} Notificate={() => this.setState({ Shownotification: !this.state.Shownotification })} SidebarToggle={() => this.ShowingSideBar()} ChatBar={() => this.ChatSidebarFunc()} SearchBar={() => this.ShowSearchBar()} ToggleBTN={() => this.setState({ CollapseNavbar: !this.state.CollapseNavbar })} />
                     <div style={{ padding: 20, paddingTop: 1 }}>
                         <div style={{ width: "100%", background: "white", position: "relative", borderRadius: 10, overflow: "scroll", overflowY: "hidden", overflowX: "scroll" }}>
-                            <div className="TimeLine_header">
-                                <b>Email Template</b>
-                                <Link to="/AddEmailTemplate"><button style={{ marginLeft: 20, padding: 4, paddingLeft: 15, paddingRight: 15, color: "white", background: "#6e00ff", border: "none", borderRadius: 20, outline: "none" }}>Create &nbsp;<AddCircleOutline /></button></Link>
-                                <button style={{ marginLeft: 20, padding: 4, paddingLeft: 15, paddingRight: 15, color: "white", background: "#ff5630", border: "none", borderRadius: 20, outline: "none" }}>Delete &nbsp;<Delete /></button>
+                            <div className="TimeLine_header" style={{ display: "flex", justifyContent: "space-between" }}>
+                                <div>
+                                    <b>Users Task</b>
+                                    <Link><button style={{ marginLeft: 20, padding: 4, paddingLeft: 15, paddingRight: 15, color: "white", background: "#6e00ff", border: "none", borderRadius: 20, outline: "none" }}>Create &nbsp;<AddCircleOutline /></button></Link>
+                                    <button style={{ marginLeft: 20, padding: 4, paddingLeft: 15, paddingRight: 15, color: "white", background: "#ff5630", border: "none", borderRadius: 20, outline: "none" }}>Delete &nbsp;<Delete /></button>
+                                </div>
+                                <div style={{ margin: 12 }}>
+                                    <Button variant="primary">CSV</Button>&nbsp;
+                                    <Button variant="primary">Excel</Button>&nbsp;
+                                    <Button variant="primary">PDF</Button>&nbsp;
+                                    <Button variant="primary">Print</Button>
+                                </div>
                             </div>
 
+                            <br />
+
                             <div style={{ padding: 20 }}>
-                                <h3>Task Update templates </h3>
-                                <table id="Pages">
-                                    <tr>
-                                        <td style={{ paddingLeft: 5, paddingRight: 5 }}><input type="checkbox" /></td>
-                                        <td><Link to="/EditEmailTemplate">your task has been about to expire</Link></td>
-                                        <td>notify_applicant_applied</td>
-                                        <td>test@example.com</td>
-                                    </tr>
-                                    <tr>
-                                        <td style={{ paddingLeft: 5, paddingRight: 5 }}><input type="checkbox" /></td>
-                                        <td><Link to="/EditEmailTemplate">your task has been completed</Link></td>
-                                        <td>notify_candidate_register</td>
-                                        <td>test@example.com</td>
-                                    </tr>
-                                    <tr>
-                                        <td style={{ paddingLeft: 5, paddingRight: 5 }}><input type="checkbox" /></td>
-                                        <td><Link to="/EditEmailTemplate">your task has been created sucessfully</Link></td>
-                                        <td>notify_applicant_status_change</td>
-                                        <td>test@example.com</td>
-                                    </tr>
-                                    <tr>
-                                        <td style={{ paddingLeft: 5, paddingRight: 5 }}><input type="checkbox" /></td>
-                                        <td><Link to="/EditEmailTemplate">your Reminder has been created sucessfully</Link></td>
-                                        <td>notify_candidate_message</td>
-                                        <td>test@example.com</td>
-                                    </tr>
-                                </table>
-                                <br />
-                                <h3>Account update templates </h3>
-                                <table id="Pages">
-                                    <tr>
-                                        <td style={{ paddingLeft: 5, paddingRight: 5 }}><input type="checkbox" /></td>
-                                        <td>Welcome to purpose</td>
-                                        <td>notify_applicant_applied</td>
-                                        <td>test@example.com</td>
-                                    </tr>
-                                    <tr>
-                                        <td style={{ paddingLeft: 5, paddingRight: 5 }}><input type="checkbox" /></td>
-                                        <td>Reset your password</td>
-                                        <td>notify_candidate_register</td>
-                                        <td>test@example.com</td>
-                                    </tr>
-                                    <tr>
-                                        <td style={{ paddingLeft: 5, paddingRight: 5 }}><input type="checkbox" /></td>
-                                        <td>password reset successfull</td>
-                                        <td>notify_applicant_status_change</td>
-                                        <td>test@example.com</td>
-                                    </tr>
-                                    <tr>
-                                        <td style={{ paddingLeft: 5, paddingRight: 5 }}><input type="checkbox" /></td>
-                                        <td>your account has been active</td>
-                                        <td>notify_candidate_message</td>
-                                        <td>test@example.com</td>
-                                    </tr>
-                                </table>
-                                <br />
-                                <h3>Payment update templates </h3>
-                                <table id="Pages">
-                                    <tr>
-                                        <td style={{ paddingLeft: 5, paddingRight: 5 }}><input type="checkbox" /></td>
-                                        <td>Payment Received</td>
-                                        <td>notify_applicant_applied</td>
-                                        <td>test@example.com</td>
-                                    </tr>
-                                    <tr>
-                                        <td style={{ paddingLeft: 5, paddingRight: 5 }}><input type="checkbox" /></td>
-                                        <td>your account is with low payment</td>
-                                        <td>notify_candidate_register</td>
-                                        <td>test@example.com</td>
-                                    </tr>
-                                    <tr>
-                                        <td style={{ paddingLeft: 5, paddingRight: 5 }}><input type="checkbox" /></td>
+                                <table id="TaskTable">
+                                    <tr className="heading">
                                         <td></td>
-                                        <td>notify_applicant_status_change</td>
-                                        <td>test@example.com</td>
+                                        <td style={{textAlign: "left"}}>Task title</td>
+                                        <td style={{ textAlign: "center", width: 100 }}>Assigned to</td>
+                                        <td style={{ textAlign: "center", width: 160 }}>Reminder type</td>
+                                        <td style={{ textAlign: "center", width: 110 }}>Status</td>
+                                        <td style={{ textAlign: "center", width: 100 }}>Percentage</td>
+                                        <td style={{ textAlign: "center", width: 155 }}>Remainder Date</td>
                                     </tr>
                                     <tr>
-                                        <td style={{ paddingLeft: 5, paddingRight: 5 }}><input type="checkbox" /></td>
-                                        <td></td>
-                                        <td>notify_candidate_message</td>
-                                        <td>test@example.com</td>
+                                        <td style={{ paddingLeft: 10, paddingRight: 15 }}><input type="checkbox" /></td>
+                                        <td style={{textAlign: "left"}}>Create the app's wireframe</td>
+                                        <td style={{ width: 100, paddingLeft: 22 }}><div className="AssignBtn" onClick={() => this.setState({ UserModal: !this.state.UserModal })}><AssignmentInd /></div></td>
+                                        <td style={{ textAlign: "center", width: 160 }}><Mail /><PhoneEnabled /></td>
+                                        <td><Form.Control as="select" style={{ width: 110 }}>
+                                            <option>Pending</option>
+                                            <option>Completed</option>
+                                            <option>delayed</option>
+                                        </Form.Control></td>
+                                        <td style={{ textAlign: "center", width: 100 }}> 50%</td>
+                                        <td style={{ textAlign: "center", width: 155 }}>20 Sep 19</td>
                                     </tr>
+                                    <tr>
+                                        <td style={{ paddingLeft: 10, paddingRight: 15 }}><input type="checkbox" /></td>
+                                        <td style={{textAlign: "left"}}>Create the app's wireframe</td>
+                                        <td style={{ width: 100, paddingLeft: 22 }}><div className="AssignBtn" onClick={() => this.setState({ UserModal: !this.state.UserModal })}><AssignmentInd /></div></td>
+                                        <td style={{ textAlign: "center", width: 160 }}><Mail /><PhoneEnabled /></td>
+                                        <td><Form.Control as="select" style={{ width: 110 }}>
+                                            <option>Pending</option>
+                                            <option>Completed</option>
+                                            <option>delayed</option>
+                                        </Form.Control></td>
+                                        <td style={{ textAlign: "center", width: 100 }}> 50%</td>
+                                        <td style={{ textAlign: "center", width: 155 }}>20 Sep 19</td>
+                                    </tr>
+                                    <tr>
+                                        <td style={{ paddingLeft: 10, paddingRight: 15 }}><input type="checkbox" /></td>
+                                        <td style={{textAlign: "left"}}>Create the app's wireframe</td>
+                                        <td style={{ width: 100, paddingLeft: 22 }}><div className="AssignBtn" onClick={() => this.setState({ UserModal: !this.state.UserModal })}><AssignmentInd /></div></td>
+                                        <td style={{ textAlign: "center", width: 160 }}><Mail /><PhoneEnabled /></td>
+                                        <td><Form.Control as="select" style={{ width: 110 }}>
+                                            <option>Pending</option>
+                                            <option>Completed</option>
+                                            <option>delayed</option>
+                                        </Form.Control></td>
+                                        <td style={{ textAlign: "center", width: 100 }}> 50%</td>
+                                        <td style={{ textAlign: "center", width: 155 }}>20 Sep 19</td>
+                                    </tr>
+
                                 </table>
                             </div>
 
@@ -257,10 +260,10 @@ export default class EmailTemplate extends Component {
                         </div>
                     </div>
                 </div>
-            </div>
-            {this.state.ShowChatSidebar && <ChatSideBar HideSidebar={() => this.hideChatSidebar()} />}
-            {this.state.Shownotification && <TabNotification />}
+                {this.state.ShowChatSidebar && <ChatSideBar HideSidebar={() => this.hideChatSidebar()} />}
+                {this.state.Shownotification && <TabNotification />}
 
+            </div>
         </div>
     }
 }

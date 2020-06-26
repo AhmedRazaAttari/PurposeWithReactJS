@@ -31,10 +31,12 @@ import firebase from './config/firebaseConfig';
 import page404 from './Screens/page404';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import SuperAdminDashboard from './Screens/SuperAdmin/Dashboard';
+// import SuperAdminDashboard from './Screens/SuperAdmin/Dashboard';
 import SuperAdminPages from './Screens/SuperAdmin/Pages';
 import SuperAdminEditPages from './Screens/SuperAdmin/EditPages';
 import SuperAdminAllUsers from './Screens/SuperAdmin/AllUsers';
+import SuperAdminUserDetail from './Screens/SuperAdmin/UserDetail';
+import SuperAdminUserTask from './Screens/SuperAdmin/UserTask';
 import SuperAdminInvoiceDesign from './Screens/SuperAdmin/Invoice';
 import SuperAdminEmailSubscribers from './Screens/SuperAdmin/EmailSubscribers';
 import SuperAdminFeedback from './Screens/SuperAdmin/Feedback';
@@ -46,13 +48,7 @@ import SuperAdminPromotions from './Screens/SuperAdmin/Promotions';
 import SuperAdminAddPromotions from './Screens/SuperAdmin/Addpromotion';
 import SuperAdminBilling from './Screens/SuperAdmin/Billing';
 
-
 import SuperAdminSettings from './Screens/SuperAdmin/Settings';
-
-
-
-
-
 
 
 import {
@@ -192,10 +188,12 @@ function App() {
       <ProtectedRoute path='/Dashboard' component={Dashboard} />
 
       {/* Super Admin Routes */}
-      <SuperAdminRoute path='/AdminDashboard' component={SuperAdminDashboard} />
+      <SuperAdminRoute path='/AdminDashboard' component={SuperAdminAllUsers} />
       <SuperAdminRoute path='/Pages' component={SuperAdminPages} />
       <SuperAdminRoute path='/EditPages' component={SuperAdminEditPages} />
-      <SuperAdminRoute path='/AllUsers' component={SuperAdminAllUsers} />
+      {/* <SuperAdminRoute path='/AllUsers' component={SuperAdminAllUsers} /> */}
+      <SuperAdminRoute path='/UserDetail' component={SuperAdminUserDetail} />
+      <SuperAdminRoute path='/UserTask' component={SuperAdminUserTask} />
       <SuperAdminRoute path='/Invoice' component={SuperAdminInvoiceDesign} />
       <SuperAdminRoute path='/Promotions' component={SuperAdminPromotions} />
       <SuperAdminRoute path='/AddPromotions' component={SuperAdminAddPromotions} />
@@ -206,10 +204,7 @@ function App() {
       <SuperAdminRoute path='/AddEmailTemplate' component={SuperAdminAddEmailTemplate} />
       <SuperAdminRoute path='/EditEmailTemplate' component={SuperAdminEditEmailTemplate} />
       <SuperAdminRoute path='/Billing' component={SuperAdminBilling} />
-
       <SuperAdminRoute path='/Settings' component={SuperAdminSettings} />
-
-
 
 
 

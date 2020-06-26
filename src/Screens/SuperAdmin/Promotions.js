@@ -130,7 +130,7 @@ export default class Promotions extends Component {
         return <div style={{ width: "100%", height: "100%" }}>
             <div id="For_SetOpacity" style={{ height: "55%", width: "100%", background: "rgb(60, 77, 235)", position: "absolute", borderBottomLeftRadius: 100 }}></div>
             <div style={{ display: "flex", width: "100%" }}>
-                {this.state.ShowSidebar && <Sidebar PagesBackground="rgb(52, 91, 209)" PagesColor="white" />}
+                {this.state.ShowSidebar && <Sidebar PromotionBackground="rgb(52, 91, 209)" PromotionColor="white" />}
                 <div id="For_SetOpacity" className="AllContent" style={{ width: "100%" }}>
                     <NavbarComp ONToggle={() => this.ONToggleFunc()} ONEXPAND={this.state.NavExpended} Notificate={() => this.setState({ Shownotification: !this.state.Shownotification })} SidebarToggle={() => this.ShowingSideBar()} ChatBar={() => this.ChatSidebarFunc()} SearchBar={() => this.ShowSearchBar()} ToggleBTN={() => this.setState({ CollapseNavbar: !this.state.CollapseNavbar })} />
                     <div style={{ padding: 20, paddingTop: 1 }}>
@@ -156,7 +156,7 @@ export default class Promotions extends Component {
                                     <tr>
                                         <td style={{ paddingLeft: 5, paddingRight: 5 }}><input type="checkbox" /></td>
                                         <td><b style={{ color: "#375591" }}>Startup Promo</b><br />
-                                            <Link style={{ color: "skyblue" }}>Edit</Link>&nbsp;|&nbsp;<Link style={{ color: "brown" }}>Delete</Link>
+                                            <Link style={{ color: "skyblue" }} to="/AddPromotions">Edit</Link>&nbsp;|&nbsp;<Link style={{ color: "brown" }}>Delete</Link>
                                         </td>
                                         <td style={{ textAlign : "left", width : 110}}>1</td>
                                         <td>12345</td>
@@ -168,7 +168,7 @@ export default class Promotions extends Component {
                                     <tr>
                                         <td style={{ paddingLeft: 5, paddingRight: 5 }}><input type="checkbox" /></td>
                                         <td><b style={{ color: "#375591" }}>Startup Promo</b><br />
-                                            <Link style={{ color: "skyblue" }}>Edit</Link>&nbsp;|&nbsp;<Link style={{ color: "brown" }}>Delete</Link>
+                                            <Link style={{ color: "skyblue" }} to="/AddPromotions">Edit</Link>&nbsp;|&nbsp;<Link style={{ color: "brown" }}>Delete</Link>
                                         </td>
                                         <td style={{ textAlign : "left", width : 110}}>1</td>
                                         <td>12345</td>
@@ -180,7 +180,7 @@ export default class Promotions extends Component {
                                     <tr>
                                         <td style={{ paddingLeft: 5, paddingRight: 5 }}><input type="checkbox" /></td>
                                         <td><b style={{ color: "#375591" }}>Startup Promo</b><br />
-                                            <Link style={{ color: "skyblue" }}>Edit</Link>&nbsp;|&nbsp;<Link style={{ color: "brown" }}>Delete</Link>
+                                            <Link style={{ color: "skyblue" }} to="/AddPromotions">Edit</Link>&nbsp;|&nbsp;<Link style={{ color: "brown" }}>Delete</Link>
                                         </td>
                                         <td style={{ textAlign : "left", width : 110}}>1</td>
                                         <td>12345</td>

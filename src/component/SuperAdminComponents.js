@@ -17,16 +17,16 @@ class Sidebar extends Component {
                 <ul>
                     <li><Link to="/AdminDashboard" style={{ background: this.props.HomeBackground, color: this.props.HomeColor }}><span><Home color="blue" fontSize="small" style={{ marginRight: 7 }} />Dashboard</span> <ChevronRightOutlined /></Link></li>
                     <li><Link to="/Pages" style={{ background: this.props.PagesBackground, color: this.props.PagesColor }}><span><NoteAdd color="blue" fontSize="small" style={{ marginRight: 7 }} />Pages</span> <ChevronRightOutlined /></Link></li>
-                    <li><Link to="/AllUsers" style={{ background: this.props.AllUserBackground, color: this.props.AllUserColor }}><span><Person color="blue" fontSize="small" style={{ marginRight: 7 }} />Users</span> <ChevronRightOutlined /></Link></li>
+                    {/* <li><Link to="/AllUsers" style={{ background: this.props.AllUserBackground, color: this.props.AllUserColor }}><span><Person color="blue" fontSize="small" style={{ marginRight: 7 }} />Users</span> <ChevronRightOutlined /></Link></li> */}
                     <li><Link to="/EmailSubscribers" style={{ background: this.props.EmailSubscriberBackground, color: this.props.EmailSubscriberColor }}><span><Home color="blue" fontSize="small" style={{ marginRight: 7 }} /><small style={{ fontSize: 15 }}>Email&nbsp;Subscribers</small></span> <ChevronRightOutlined /></Link></li>
                     <li><Link to="/Billing" style={{ background: this.props.BillingBackground, color: this.props.BillingColor }}><span><Home color="blue" fontSize="small" style={{ marginRight: 7 }} />Billing</span> <ChevronRightOutlined /></Link></li>
-                    <li><Link to="/Feedback"><span><Home color="blue" fontSize="small" style={{ marginRight: 7 }} />feedback</span> <ChevronRightOutlined /></Link></li>
-                    <li><Link to="/FeedbackReply"><span><Home color="blue" fontSize="small" style={{ marginRight: 7 }} />Feedback&nbsp;Reply</span> <ChevronRightOutlined /></Link></li>
+                    <li><Link to="/Feedback" style={{ background: this.props.FeedbackBackground, color: this.props.FeedbackColor }}><span><Home color="blue" fontSize="small" style={{ marginRight: 7 }} />feedback</span> <ChevronRightOutlined /></Link></li>
+                    {/* <li><Link to="/FeedbackReply"><span><Home color="blue" fontSize="small" style={{ marginRight: 7 }} />Feedback&nbsp;Reply</span> <ChevronRightOutlined /></Link></li> */}
                     <li><Link to="/Invoice" style={{ background: this.props.InvoiceBackground, color: this.props.InvoiceColor }}><span><Home color="blue" fontSize="small" style={{ marginRight: 7 }} />Invoice</span> <ChevronRightOutlined /></Link></li>
                     <li><Link to="/EmailTemplateList" style={{ background: this.props.EmailTempBackground, color: this.props.EmailTempColor }}><span><Home color="blue" fontSize="small" style={{ marginRight: 7 }} /><small style={{ fontSize: 15 }}>Email&nbsp;Template</small></span> <ChevronRightOutlined /></Link></li>
-                    <li><Link to="/EditEmailTemplate" style={{ background: this.props.EmailTempBackground, color: this.props.EmailTempColor }}><span><Home color="blue" fontSize="small" style={{ marginRight: 7 }} /><small style={{ fontSize: 15 }}>Edit&nbsp;Email&nbsp;Template</small></span> <ChevronRightOutlined /></Link></li>
-                    <li><Link to="/Promotions"><span><Home color="blue" fontSize="small" style={{ marginRight: 7 }} />Promotions</span> <ChevronRightOutlined /></Link></li>
-                    <li><Link to="/Settings"><span><Home color="blue" fontSize="small" style={{ marginRight: 7 }} />Settings</span> <ChevronRightOutlined /></Link></li>
+                    {/* <li><Link to="/EditEmailTemplate" style={{ background: this.props.EmailTempBackground, color: this.props.EmailTempColor }}><span><Home color="blue" fontSize="small" style={{ marginRight: 7 }} /><small style={{ fontSize: 15 }}>Edit&nbsp;Email&nbsp;Template</small></span> <ChevronRightOutlined /></Link></li> */}
+                    <li><Link to="/Promotions" style={{ background: this.props.PromotionBackground, color: this.props.PromotionColor }}><span><Home color="blue" fontSize="small" style={{ marginRight: 7 }} />Promotions</span> <ChevronRightOutlined /></Link></li>
+                    <li><Link to="/Settings" style={{ background: this.props.SettingBackground, color: this.props.SettingColor }}><span><Home color="blue" fontSize="small" style={{ marginRight: 7 }} />Settings</span> <ChevronRightOutlined /></Link></li>
                 </ul>
             </div>
         </div>
@@ -49,7 +49,7 @@ class BottomTab extends Component {
                     </Link>
                 </div>
                 <div style={{ display: "flex", flexDirection: "column" }}>
-                    <Link style={{ fontSize: 15, fontFamily: "cursive", textDecoration: "none", background: this.props.NotificationBackground, color: "white" }}>
+                    <Link to="/Billing" style={{ fontSize: 15, fontFamily: "cursive", textDecoration: "none", background: this.props.NotificationBackground, color: "white" }}>
                         <NoteAdd />&nbsp;Billing
                     </Link>
                     <Link to="/Feedback" style={{ fontSize: 15, fontFamily: "cursive", textDecoration: "none", background: this.props.NotificationBackground, color: "white" }}>

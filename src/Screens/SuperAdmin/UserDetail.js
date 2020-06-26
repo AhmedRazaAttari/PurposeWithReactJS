@@ -14,10 +14,8 @@ import Third from '../../assets/images/Chats/Third.jpg';
 import Fourth from '../../assets/images/Chats/Fourth.jpg';
 import Fifth from '../../assets/images/Chats/Fifth.jpg';
 import '../../admin.css';
-import { Redirect } from 'react-router'
 
-
-export default class AllUsers extends Component {
+export default class UserDetail extends Component {
 
     constructor() {
         super();
@@ -150,7 +148,7 @@ export default class AllUsers extends Component {
                         <div style={{ width: "100%", background: "white", position: "relative", borderRadius: 10, overflow: "scroll", overflowY: "hidden", overflowX: "scroll" }}>
                             <div className="TimeLine_header" style={{ display: "flex", justifyContent: "space-between" }}>
                                 <div>
-                                    <b>MANAGE USERS</b>
+                                    <b>USERS DETAIL</b>
                                     <Link><button style={{ marginLeft: 20, padding: 4, paddingLeft: 15, paddingRight: 15, color: "white", background: "#6e00ff", border: "none", borderRadius: 20, outline: "none" }}>Create &nbsp;<AddCircleOutline /></button></Link>
                                     <button style={{ marginLeft: 20, padding: 4, paddingLeft: 15, paddingRight: 15, color: "white", background: "#ff5630", border: "none", borderRadius: 20, outline: "none" }}>Delete &nbsp;<Delete /></button>
                                 </div>
@@ -208,12 +206,10 @@ export default class AllUsers extends Component {
                                         <td></td>
                                         <td >Name</td>
                                         <td style={{ width: 150 }}>Email</td>
-                                        <td style={{ width: 115 }}>Joining date</td>
+                                        <td style={{ fontSize: 14, width: 150 }}>Phone</td>
+                                        <td>Role</td>
+                                        <td style={{ width: 145 }}>IP address</td>
                                         <td>Location</td>
-                                        <td style={{ width: 110 }}>Account type</td>
-                                        <td style={{ width: 80, textAlign: "center" }}>Active/Block</td>
-                                        <td style={{ width: 80 }}>Detail</td>
-                                        <td style={{ width: 80 }}>Task</td>
                                     </tr>
                                     <tr>
                                         <td style={{ paddingLeft: 10, paddingRight: 10 }}><input type="checkbox" /></td>
@@ -226,12 +222,10 @@ export default class AllUsers extends Component {
                                             </div>
                                         </td>
                                         <td >name@example.com</td>
-                                        <td>12-10-2014</td>
+                                        <td><PhoneEnabled />&nbsp; (240) 330-2007</td>
+                                        <td>Designer</td>
+                                        <td>192.55.20.11</td>
                                         <td>US</td>
-                                        <td>Free</td>
-                                        <td><div className="BlockBtn"><Person /></div></td>
-                                        <td><div className="ModalBtn" onClick={() => this.setState({ UserDetail: true })}><RemoveRedEye /></div></td>
-                                        <td><div className="ModalBtn" onClick={() => this.setState({ UserTask: true })}><RemoveRedEye /></div></td>
                                     </tr>
                                     <tr>
                                         <td style={{ paddingLeft: 10, paddingRight: 10 }}><input type="checkbox" /></td>
@@ -244,12 +238,10 @@ export default class AllUsers extends Component {
                                             </div>
                                         </td>
                                         <td>name@example.com</td>
-                                        <td >12-10-2014</td>
+                                        <td><PhoneEnabled />&nbsp; (240) 330-2007</td>
+                                        <td>Developer</td>
+                                        <td>192.55.20.11</td>
                                         <td>US</td>
-                                        <td>Free</td>
-                                        <td><div className="BlockBtn"><Person /></div></td>
-                                        <td><div className="ModalBtn" onClick={() => this.setState({ UserDetail: true })}><RemoveRedEye /></div></td>
-                                        <td><div className="ModalBtn" onClick={() => this.setState({ UserTask: true })}><RemoveRedEye /></div></td>
                                     </tr>
                                     <tr>
                                         <td style={{ paddingLeft: 10, paddingRight: 10 }}><input type="checkbox" /></td>
@@ -262,12 +254,10 @@ export default class AllUsers extends Component {
                                             </div>
                                         </td>
                                         <td>name@example.com</td>
-                                        <td>12-10-2014</td>
+                                        <td><PhoneEnabled />&nbsp; (240) 330-2007</td>
+                                        <td>Accountant</td>
+                                        <td>192.55.20.11</td>
                                         <td>Australia</td>
-                                        <td>Gold</td>
-                                        <td><div className="BlockBtn"><PersonAddDisabled /></div></td>
-                                        <td><div className="ModalBtn" onClick={() => this.setState({ UserDetail: true })}><RemoveRedEye /></div></td>
-                                        <td><div className="ModalBtn" onClick={() => this.setState({ UserTask: true })}><RemoveRedEye /></div></td>
                                     </tr>
                                     <tr>
                                         <td style={{ paddingLeft: 10, paddingRight: 10 }}><input type="checkbox" /></td>
@@ -280,12 +270,10 @@ export default class AllUsers extends Component {
                                             </div>
                                         </td>
                                         <td>name@example.com</td>
-                                        <td>12-10-2014</td>
-                                        <td></td>
-                                        <td>Silver</td>
-                                        <td><div className="BlockBtn"><PersonAddDisabled /></div></td>
-                                        <td><div className="ModalBtn" onClick={() => this.setState({ UserDetail: true })}><RemoveRedEye /></div></td>
-                                        <td><div className="ModalBtn" onClick={() => this.setState({ UserTask: true })}><RemoveRedEye /></div></td>
+                                        <td><PhoneEnabled />&nbsp; (240) 330-2007</td>
+                                        <td>HR</td>
+                                        <td>192.55.20.11</td>
+                                        <td>Europe</td>
                                     </tr>
                                     <tr>
                                         <td style={{ paddingLeft: 10, paddingRight: 10 }}><input type="checkbox" /></td>
@@ -298,12 +286,10 @@ export default class AllUsers extends Component {
                                             </div>
                                         </td>
                                         <td>name@example.com</td>
-                                        <td>12-10-2014</td>
+                                        <td><PhoneEnabled />&nbsp; (240) 330-2007</td>
+                                        <td>Manager</td>
+                                        <td>192.55.20.11</td>
                                         <td></td>
-                                        <td></td>
-                                        <td><div className="BlockBtn"><PersonAddDisabled /></div></td>
-                                        <td><div className="ModalBtn" onClick={() => this.setState({ UserDetail: true })}><RemoveRedEye /></div></td>
-                                        <td><div className="ModalBtn" onClick={() => this.setState({ UserTask: true })}><RemoveRedEye /></div></td>
                                     </tr>
                                     <tr>
                                         <td style={{ paddingLeft: 10, paddingRight: 10 }}><input type="checkbox" /></td>
@@ -316,12 +302,10 @@ export default class AllUsers extends Component {
                                             </div>
                                         </td>
                                         <td>name@example.com</td>
-                                        <td>12-10-2014</td>
+                                        <td><PhoneEnabled />&nbsp; (240) 330-2007</td>
+                                        <td>Chairman</td>
+                                        <td>192.55.20.11</td>
                                         <td></td>
-                                        <td></td>
-                                        <td><div className="BlockBtn"><Person/></div></td>
-                                        <td><div className="ModalBtn" onClick={() => this.setState({ UserDetail: true })}><RemoveRedEye /></div></td>
-                                        <td><div className="ModalBtn" onClick={() => this.setState({ UserTask: true })}><RemoveRedEye /></div></td>
                                     </tr>
                                 </table>
                             </div>
@@ -362,9 +346,59 @@ export default class AllUsers extends Component {
             </div>
             {this.state.ShowChatSidebar && <ChatSideBar HideSidebar={() => this.hideChatSidebar()} />}
             {this.state.Shownotification && <TabNotification />}
-            {this.state.UserDetail && <Redirect to="UserDetail" push={true} />}
-            {this.state.UserTask && <Redirect to="UserTask" push={true} />}
-            
+            {this.state.UserModal && <Modal show={this.state.UserModal} onHide={() => this.setState({ UserModal: false })} className="UserModal" centered>
+                <Modal.Header closeButton>
+                    <Modal.Title>User's task List</Modal.Title>
+                </Modal.Header>
+                <Modal.Body style={{ padding: "2px" }}>
+                    <table style={{ width: "100%" }}>
+                        <tr className="heading">
+                            <td></td>
+                            <td style={{ width: 300 }}>Task title</td>
+                            <td style={{ textAlign: "center", width: 100 }}>Assigned to</td>
+                            <td style={{ textAlign: "center", width: 160 }}>Reminder type</td>
+                            <td style={{ textAlign: "center", width: 110 }}>Status</td>
+                            <td style={{ textAlign: "center", width: 155 }}>Remainder Date</td>
+                        </tr>
+                        <tr>
+                            <td style={{ paddingLeft: 10, paddingRight: 15 }}><input type="checkbox" /></td>
+                            <td>Create the app's wireframe</td>
+                            <td><div className="AssignBtn"><AssignmentInd /></div></td>
+                            <td><Mail /><PhoneEnabled /></td>
+                            <td><Form.Control as="select">
+                                <option>Pending</option>
+                                <option>Completed</option>
+                                <option>delayed</option>
+                            </Form.Control></td>
+                            <td >20 Sep 19</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" /></td>
+                            <td>Create the app's wireframe</td>
+                            <td><div className="AssignBtn"><AssignmentInd /></div></td>
+                            <td ><Mail /><PhoneEnabled /></td>
+                            <td><Form.Control as="select" style={{ width: 110 }}>
+                                <option>Pending</option>
+                                <option>Completed</option>
+                                <option>delayed</option>
+                            </Form.Control></td>
+                            <td>20 Sep 19</td>
+                        </tr>
+                        <tr>
+                            <td style={{ paddingLeft: 10, paddingRight: 15 }}><input type="checkbox" /></td>
+                            <td>Create the app's wireframe</td>
+                            <td><div className="AssignBtn"><AssignmentInd /></div></td>
+                            <td><Mail /><PhoneEnabled /></td>
+                            <td><Form.Control as="select" style={{ width: 110 }}>
+                                <option>Pending</option>
+                                <option>Completed</option>
+                                <option>delayed</option>
+                            </Form.Control></td>
+                            <td>20 Sep 19</td>
+                        </tr>
+                    </table>
+                </Modal.Body>
+            </Modal>}
 
         </div>
     }

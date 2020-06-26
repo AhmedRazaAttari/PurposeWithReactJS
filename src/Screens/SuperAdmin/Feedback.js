@@ -5,6 +5,7 @@ import $ from 'jquery';
 import {
     Link
 } from "react-router-dom";
+import { Redirect } from 'react-router'
 import { Checkbox, TextField, FormControl, MenuItem, Select } from '@material-ui/core';
 import { Search, Delete, Check, AddCircleOutline, Edit, RemoveRedEye, Flag, PhoneEnabled, InsertLink, ExitToApp } from '@material-ui/icons';
 import { Modal, Form, Button } from 'react-bootstrap'
@@ -137,7 +138,7 @@ export default class Feedback extends Component {
         return <div style={{ width: "100%", height: "100%" }}>
             <div id="For_SetOpacity" style={{ height: "55%", width: "100%", background: "rgb(60, 77, 235)", position: "absolute", borderBottomLeftRadius: 100 }}></div>
             <div style={{ display: "flex", width: "100%" }}>
-                {this.state.ShowSidebar && <Sidebar AllUserBackground="rgb(52, 91, 209)" AllUserColor="white" />}
+                {this.state.ShowSidebar && <Sidebar FeedbackBackground="rgb(52, 91, 209)" FeedbackColor="white" />}
                 <div id="For_SetOpacity" className="AllContent" style={{ width: "100%" }}>
                     <NavbarComp ONToggle={() => this.ONToggleFunc()} ONEXPAND={this.state.NavExpended} Notificate={() => this.setState({ Shownotification: !this.state.Shownotification })} SidebarToggle={() => this.ShowingSideBar()} ChatBar={() => this.ChatSidebarFunc()} SearchBar={() => this.ShowSearchBar()} ToggleBTN={() => this.setState({ CollapseNavbar: !this.state.CollapseNavbar })} />
                     <div style={{ padding: 20, paddingTop: 1 }}>
@@ -175,7 +176,7 @@ export default class Feedback extends Component {
                                         <td>Designer</td>
                                         <td style={{ width: 115 }}>12-10-2014</td>
                                         <td>Great Platform...</td>
-                                        <td style={{ width: 80, paddingLeft: 20 }}><div className="ModalBtn"><RemoveRedEye /></div></td>
+                                        <td style={{ width: 80, paddingLeft: 20 }}><div className="ModalBtn" onClick={() => this.setState({ feedbackReply: true })}><RemoveRedEye /></div></td>
                                     </tr>
                                     <tr>
                                         <td style={{ paddingLeft: 10, paddingRight: 10 }}><input type="checkbox" /></td>
@@ -192,7 +193,7 @@ export default class Feedback extends Component {
                                         <td>Developer</td>
                                         <td style={{ width: 115 }}>12-10-2014</td>
                                         <td>Great Platform...</td>
-                                        <td style={{ width: 80, paddingLeft: 20 }}><div className="ModalBtn"><RemoveRedEye /></div></td>
+                                        <td style={{ width: 80, paddingLeft: 20 }}><div className="ModalBtn" onClick={() => this.setState({ feedbackReply: true })}><RemoveRedEye /></div></td>
                                     </tr>
                                     <tr>
                                         <td style={{ paddingLeft: 10, paddingRight: 10 }}><input type="checkbox" /></td>
@@ -209,7 +210,7 @@ export default class Feedback extends Component {
                                         <td>Accountant</td>
                                         <td style={{ width: 115 }}>12-10-2014</td>
                                         <td>Great Platform...</td>
-                                        <td style={{ width: 80, paddingLeft: 20 }}><div className="ModalBtn"><RemoveRedEye /></div></td>
+                                        <td style={{ width: 80, paddingLeft: 20 }}><div className="ModalBtn" onClick={() => this.setState({ feedbackReply: true })}><RemoveRedEye /></div></td>
                                     </tr>
                                     <tr>
                                         <td style={{ paddingLeft: 10, paddingRight: 10 }}><input type="checkbox" /></td>
@@ -226,7 +227,7 @@ export default class Feedback extends Component {
                                         <td>HR</td>
                                         <td style={{ width: 115 }}>12-10-2014</td>
                                         <td>Great Platform...</td>
-                                        <td style={{ width: 80, paddingLeft: 20 }}><div className="ModalBtn"><RemoveRedEye /></div></td>
+                                        <td style={{ width: 80, paddingLeft: 20 }}><div className="ModalBtn" onClick={() => this.setState({ feedbackReply: true })}><RemoveRedEye /></div></td>
                                     </tr>
                                     <tr>
                                         <td style={{ paddingLeft: 10, paddingRight: 10 }}><input type="checkbox" /></td>
@@ -243,7 +244,7 @@ export default class Feedback extends Component {
                                         <td>Manager</td>
                                         <td style={{ width: 115 }}>12-10-2014</td>
                                         <td>Great Platform...</td>
-                                        <td style={{ width: 80, paddingLeft: 20 }}><div className="ModalBtn"><RemoveRedEye /></div></td>
+                                        <td style={{ width: 80, paddingLeft: 20 }}><div className="ModalBtn" onClick={() => this.setState({ feedbackReply: true })}><RemoveRedEye /></div></td>
                                     </tr>
                                     <tr>
                                         <td style={{ paddingLeft: 10, paddingRight: 10 }}><input type="checkbox" /></td>
@@ -260,7 +261,7 @@ export default class Feedback extends Component {
                                         <td>Chairman</td>
                                         <td style={{ width: 115 }}>12-10-2014</td>
                                         <td>Great Platform...</td>
-                                        <td style={{ width: 80, paddingLeft: 20 }}><div className="ModalBtn"><RemoveRedEye /></div></td>
+                                        <td style={{ width: 80, paddingLeft: 20 }}><div className="ModalBtn" onClick={() => this.setState({ feedbackReply: true })}><RemoveRedEye /></div></td>
                                     </tr>
                                 </table>
                             </div>
@@ -301,6 +302,7 @@ export default class Feedback extends Component {
             </div>
             {this.state.ShowChatSidebar && <ChatSideBar HideSidebar={() => this.hideChatSidebar()} />}
             {this.state.Shownotification && <TabNotification />}
+            {this.state.feedbackReply && <Redirect to="FeedbackReply" push={true} />}
 
         </div>
     }

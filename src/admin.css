@@ -63,6 +63,9 @@ td{
 .UserModal td{
     border: none;
 }
+#TaskTable td{
+    border: none;
+}
 
 #Billing{
     width: 50%;

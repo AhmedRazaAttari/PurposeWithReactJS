@@ -129,27 +129,28 @@ export default class FeedbackReply extends Component {
         return <div style={{ width: "100%", height: "100%" }}>
             <div id="For_SetOpacity" style={{ height: "55%", width: "100%", background: "rgb(60, 77, 235)", position: "absolute", borderBottomLeftRadius: 100 }}></div>
             <div style={{ display: "flex", width: "100%" }}>
-                {this.state.ShowSidebar && <Sidebar PagesBackground="rgb(52, 91, 209)" PagesColor="white" />}
+                {this.state.ShowSidebar && <Sidebar FeedbackBackground="rgb(52, 91, 209)" FeedbackColor="white" />}
                 <div id="For_SetOpacity" className="AllContent" style={{ width: "100%" }}>
                     <NavbarComp ONToggle={() => this.ONToggleFunc()} ONEXPAND={this.state.NavExpended} Notificate={() => this.setState({ Shownotification: !this.state.Shownotification })} SidebarToggle={() => this.ShowingSideBar()} ChatBar={() => this.ChatSidebarFunc()} SearchBar={() => this.ShowSearchBar()} ToggleBTN={() => this.setState({ CollapseNavbar: !this.state.CollapseNavbar })} />
                     <div style={{ padding: 20, paddingTop: 1 }}>
                         <div style={{ width: "100%", background: "white", position: "relative", borderRadius: 10, display: "flex", flexDirection: "column", padding: 20 }}>
                             <h3>Feedback / suggestion Reply</h3><br />
-                            <div style={{ display: "flex", width: 500, justifyContent: "space-between", alignItems: "center" }}>
+
+                            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap" }}>
                                 <Form.Label>Sender Name</Form.Label>
-                                <Form.Group controlId="exampleForm.ControlInput1" style={{ width: "60%" }}>
+                                <Form.Group controlId="exampleForm.ControlInput1" style={{ width: "80%" }}>
                                     <Form.Control placeholder="John" />
                                 </Form.Group>
                             </div>
-                            <div style={{ display: "flex", width: 500, justifyContent: "space-between", alignItems: "center" }}>
+                            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap" }}>
                                 <Form.Label>Sender Email</Form.Label>
-                                <Form.Group controlId="exampleForm.ControlInput1" style={{ width: "60%" }}>
+                                <Form.Group controlId="exampleForm.ControlInput1" style={{ width: "80%" }}>
                                     <Form.Control placeholder="test@example.com" />
                                 </Form.Group>
                             </div>
-                            <div style={{ display: "flex", width: 500, justifyContent: "space-between", alignItems: "center" }}>
+                            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap" }}>
                                 <Form.Label>Enquiry/Feedback Type</Form.Label>
-                                <Form.Group controlId="exampleForm.ControlSelect1" style={{ width: "60%" }}>
+                                <Form.Group controlId="exampleForm.ControlSelect1" style={{ width: "80%" }}>
                                     <Form.Control as="select">
                                         <option>feature improvement</option>
                                         <option>general inquiry</option>
@@ -159,24 +160,24 @@ export default class FeedbackReply extends Component {
                                     </Form.Control>
                                 </Form.Group>
                             </div>
-                            <div style={{ display: "flex", width: 500, justifyContent: "space-between", alignItems: "center" }}>
+                            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap" }}>
                                 <Form.Label>Subject</Form.Label>
-                                <Form.Group controlId="exampleForm.ControlInput1" style={{ width: "60%" }}>
+                                <Form.Group controlId="exampleForm.ControlInput1" style={{ width: "80%" }}>
                                     <Form.Control placeholder="Need new feature" />
                                 </Form.Group>
                             </div>
-                            <div style={{ display: "flex", width: 500, justifyContent: "space-between", alignItems: "center" }}>
+                            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap" }}>
                                 <Form.Label>From email</Form.Label>
-                                <Form.Group controlId="exampleForm.ControlInput1" style={{ width: "60%" }}>
+                                <Form.Group controlId="exampleForm.ControlInput1" style={{ width: "80%" }}>
                                     <Form.Control type="email" placeholder="noreply@company.com" />
                                 </Form.Group>
                             </div>
-                            <div style={{ display: "flex", justifyContent: "space-between" }}>
+                            <div style={{ display: "flex", justifyContent: "space-between", flexWrap: "wrap" }}>
                                 <Form.Label>Body Text</Form.Label>
-                                <div style={{ display: "flex", flexDirection: "column", width: "77%" }}>
+                                <div style={{ display: "flex", flexDirection: "column", width: "80%" }}>
                                     <div style={{ display: "flex", flexDirection: "row", marginBottom: 10 }}>
-                                        <button><LibraryBooks />&nbsp; Insert Variable</button>
-                                        <button><Search />&nbsp; Preview</button>
+                                    <button style={{ border: "2px solid skyblue", borderRadius: 15, background: "white", color: "blueviolet" }}><LibraryBooks />&nbsp; Insert Variable</button>
+                                        <button style={{ border: "2px solid skyblue", borderRadius: 15, marginLeft: 10, background: "white", color: "blueviolet" }}><Search />&nbsp; Preview</button>
                                     </div>
                                     <Form.Control as="textarea" rows="6" />
                                 </div>

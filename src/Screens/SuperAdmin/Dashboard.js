@@ -36,8 +36,6 @@ export default class AdminDashboard extends Component {
             if ($(".AllContent").width() <= 954) {
                 $(".Verification").css("display", "none")
                 $(".Personal_Detail").css("width", "100%")
-
-
             }
 
             if ($(".AllContent").width() > 954) {
@@ -71,10 +69,6 @@ export default class AdminDashboard extends Component {
             console.log("SearchResult CLICKED")
         });
 
-        // if($(".sidebar").css("display","none")){
-        //     $(".Verification").css("display", "")
-        // }
-
         var _ = this;
 
 
@@ -95,22 +89,17 @@ export default class AdminDashboard extends Component {
             if ($(".AllContent").width() <= 954) {
                 $(".Verification").css("display", "none")
                 $(".Personal_Detail").css("width", "100%")
-
             }
 
             if ($(".AllContent").width() > 954) {
                 $(".Verification").css("display", "none")
                 $(".Personal_Detail").css("width", "100%")
-
-
             }
         }
 
         else {
             $(".Verification").css("display", "")
             $(".Personal_Detail").css("width", "")
-
-
 
         }
     }
