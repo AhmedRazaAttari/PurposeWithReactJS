@@ -49,6 +49,9 @@ import SuperAdminAddPromotions from './Screens/SuperAdmin/Addpromotion';
 import SuperAdminBilling from './Screens/SuperAdmin/Billing';
 
 import SuperAdminSettings from './Screens/SuperAdmin/Settings';
+import SuperAdminPaypal from './Screens/SuperAdmin/Paypal';
+import SuperAdminStripe from './Screens/SuperAdmin/Stripe';
+
 
 
 import {
@@ -205,7 +208,8 @@ function App() {
       <SuperAdminRoute path='/EditEmailTemplate' component={SuperAdminEditEmailTemplate} />
       <SuperAdminRoute path='/Billing' component={SuperAdminBilling} />
       <SuperAdminRoute path='/Settings' component={SuperAdminSettings} />
-
+      <SuperAdminRoute path='/Paypal' component={SuperAdminPaypal} />
+      <SuperAdminRoute path='/Stripe' component={SuperAdminStripe} />
 
 
       <EmailRoute path='/EmailVerification' component={EmailVerification} />
