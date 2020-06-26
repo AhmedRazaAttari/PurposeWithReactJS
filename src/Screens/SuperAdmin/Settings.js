@@ -5,7 +5,7 @@ import $ from 'jquery';
 import {
     Link
 } from "react-router-dom";
-import { Search, LibraryBooks } from '@material-ui/icons';
+import { Search, Payment, Facebook, Twitter, LinkedIn, AccountBalance } from '@material-ui/icons';
 import '../../admin.css';
 import { Checkbox, TextField, FormControl, MenuItem, Select } from '@material-ui/core';
 import { Form, Row, Col, Button, Modal } from 'react-bootstrap';
@@ -133,10 +133,48 @@ export default class AddEmailTemplate extends Component {
                 <div id="For_SetOpacity" className="AllContent" style={{ width: "100%" }}>
                     <NavbarComp ONToggle={() => this.ONToggleFunc()} ONEXPAND={this.state.NavExpended} Notificate={() => this.setState({ Shownotification: !this.state.Shownotification })} SidebarToggle={() => this.ShowingSideBar()} ChatBar={() => this.ChatSidebarFunc()} SearchBar={() => this.ShowSearchBar()} ToggleBTN={() => this.setState({ CollapseNavbar: !this.state.CollapseNavbar })} />
                     <div style={{ padding: 20, paddingTop: 1 }}>
-                        <div style={{ width: "100%", background: "white", position: "relative", borderRadius: 10, display: "flex", flexDirection: "column", padding: 20 }}>
-                            <h3>Payment Method</h3>
-                            <br />
-                            
+                        <div style={{ width: "100%", background: "white", position: "relative", borderRadius: 10, display: "flex", flexDirection: "column", padding: 20, boxShadow : "#e0d5d5 0px 0px 5px 2px" }}>
+                            <div id="SettingItems" >
+
+                                <h3>Payment Method</h3>
+                                <br />
+                                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap" }}>
+                                    <div>
+                                        <Payment />&nbsp;Paypal
+                                </div>
+                                    <button style={{ border: "2px solid skyblue", borderRadius: 5, background: "white", color: "blueviolet" }}>Edit...</button>
+                                </div>
+                                <br />
+                                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap" }}>
+                                    <div>
+                                        <AccountBalance />&nbsp;Stripe (credit card)
+                                </div>
+                                    <button style={{ border: "2px solid skyblue", borderRadius: 5, background: "white", color: "blueviolet" }}>Edit...</button>
+                                </div>
+                                <br />
+                                <h3>Integrations</h3>
+                                <br />
+                                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap" }}>
+                                    <div>
+                                        <Facebook />&nbsp;facebook
+                                </div>
+                                    <button style={{ border: "2px solid skyblue", borderRadius: 5, background: "white", color: "blueviolet" }}>Edit...</button>
+                                </div>
+                                <br />
+                                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap" }}>
+                                    <div>
+                                        <Twitter />&nbsp;twitter
+                                </div>
+                                    <button style={{ border: "2px solid skyblue", borderRadius: 5, background: "white", color: "blueviolet" }}>Edit...</button>
+                                </div>
+                                <br />
+                                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap" }}>
+                                    <div>
+                                        <LinkedIn />&nbsp;LinkedIn
+                                </div>
+                                    <button style={{ border: "2px solid skyblue", borderRadius: 5, background: "white", color: "blueviolet" }}>Edit...</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <BottomTab />

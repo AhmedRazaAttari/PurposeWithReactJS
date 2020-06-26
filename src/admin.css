@@ -112,9 +112,20 @@ td{
     border : none
 }
 
+#SettingItems{
+    width: 50%;
+}
 
+@media screen and (max-width: 1050px) {
+    #SettingItems{
+        width: 80%;
+    }
+}
 @media screen and (max-width: 800px) {
     #Billing{
+        width: 100%;
+    }
+    #SettingItems{
         width: 100%;
     }
 }
