@@ -138,7 +138,7 @@ export default class AdminDashboard extends Component {
                         <div style={{ width: "100%", background: "white", position: "relative", borderRadius: 10, overflow: "scroll", overflowY: "hidden", overflowX: "scroll" }}>
                             <div className="TimeLine_header" style={{ display: "flex", justifyContent: "space-between" }}>
                                 <div>
-                                    <b>MANAGE USERS</b>
+                                    <b>INVOICE LIST</b>
                                     <Link><button style={{ marginLeft: 20, padding: 4, paddingLeft: 15, paddingRight: 15, color: "white", background: "#6e00ff", border: "none", borderRadius: 20, outline: "none" }}>Create &nbsp;<AddCircleOutline /></button></Link>
                                     <button style={{ marginLeft: 20, padding: 4, paddingLeft: 15, paddingRight: 15, color: "white", background: "#ff5630", border: "none", borderRadius: 20, outline: "none" }}>Delete &nbsp;<Delete /></button>
                                 </div>
