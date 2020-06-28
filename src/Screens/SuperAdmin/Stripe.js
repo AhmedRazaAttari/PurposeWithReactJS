@@ -165,7 +165,7 @@ export default class Stripe extends Component {
                                             <Form.Group controlId="exampleForm.ControlInput1">
                                                 <Form.Control type="text" />
                                             </Form.Group>
-                                            Payment are sorted asecding by order number
+                                            <small>Payment are sorted asecding by order number</small>
                                         </td>
                                     </tr>
                                 </table>
@@ -198,7 +198,7 @@ export default class Stripe extends Component {
                                             <Form.Group controlId="exampleForm.ControlInput1" >
                                                 <Form.Control type="email" placeholder="test@example.com" />
                                             </Form.Group>
-                                            The %s will be replaced with ordered ID assigned by WPJobboard
+                                            <small>The %s will be replaced with ordered ID assigned by WPJobboard</small>
                                         </td>
                                     </tr>
                                     <tr>
@@ -207,7 +207,7 @@ export default class Stripe extends Component {
                                             <Form.Group controlId="exampleForm.ControlInput1" >
                                                 <Form.Control type="email" placeholder="test@example.com" />
                                             </Form.Group>
-                                            Extra information about a charge. This will appears on your computer card's statement
+                                            <small>Extra information about a charge. This will appears on your computer card's statement</small>
                                         </td>
                                     </tr>
                                     <tr>

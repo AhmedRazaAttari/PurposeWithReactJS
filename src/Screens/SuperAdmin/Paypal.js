@@ -165,7 +165,7 @@ export default class Paypal extends Component {
                                             <Form.Group controlId="exampleForm.ControlInput1">
                                                 <Form.Control type="text" />
                                             </Form.Group>
-                                            Payment are sorted asecding by order number
+                                            <small>Payment are sorted asecding by order number</small>
                                         </td>
                                     </tr>
                                 </table>
