@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 import { Search, Payment, Facebook, Twitter, LinkedIn, AccountBalance } from '@material-ui/icons';
 import '../../admin.css';
-import { Checkbox, TextField, FormControl, MenuItem, Select } from '@material-ui/core';
+import { Checkbox, TextField, FormControl, MenuItem, Select, RadioGroup, FormControlLabel, Radio } from '@material-ui/core';
 import { Form, Row, Col, Button, Modal } from 'react-bootstrap';
 
 export default class Paypal extends Component {
@@ -136,10 +136,39 @@ export default class Paypal extends Component {
                         <div style={{ width: "100%", background: "white", position: "relative", borderRadius: 10, display: "flex", flexDirection: "column", padding: 20, boxShadow: "#e0d5d5 0px 0px 5px 2px" }}>
                             <h3>Payment Method :Paypal</h3>
                             <br />
-                            <div style={{ width: "100%", boxShadow: "#e0d5d5 0px 0px 5px 2px", height: 350 }}>
+                            <div style={{ width: "100%", boxShadow: "#e0d5d5 0px 0px 5px 2px" }}>
                                 <div className="TimeLine_header">
                                     <b>Configuration</b>
                                 </div>
+                                <table style={{width : "100%"}}>
+                                    <tr>
+                                        <td><b>Availability</b></td>
+                                        <td style={{padding : 15}}>
+                                            <RadioGroup aria-label="gender" name="gender1">
+                                                <FormControlLabel value="Enable this payment method" control={<Radio />} label="Enable this payment method" />
+                                                <FormControlLabel value="Disable this payment method" control={<Radio />} label="Disable this payment method" />
+                                            </RadioGroup>
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td><b>Title</b></td>
+                                        <td style={{padding : 10}}>
+                                            <Form.Group controlId="exampleForm.ControlInput1">
+                                                <Form.Control type="text" />
+                                            </Form.Group>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Order</b></td>
+                                        <td style={{display : "flex", flexDirection : "column", padding : 7, textAlign : "left"}}>
+                                            <Form.Group controlId="exampleForm.ControlInput1">
+                                                <Form.Control type="text" />
+                                            </Form.Group>
+                                            Payment are sorted asecding by order number
+                                        </td>
+                                    </tr>
+                                </table>
                             </div>
                         </div>
                     </div>

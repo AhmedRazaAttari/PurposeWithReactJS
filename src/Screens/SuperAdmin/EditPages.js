@@ -5,10 +5,8 @@ import $ from 'jquery';
 import {
     Link
 } from "react-router-dom";
-import { Search, AddCircle } from '@material-ui/icons';
-import { Modal, Form, Button } from 'react-bootstrap'
-import CKEditor from '@ckeditor/ckeditor5-react';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import { Search, LibraryBooks } from '@material-ui/icons';
+import { Form, Button } from 'react-bootstrap'
 
 export default class EditPages extends Component {
 
@@ -136,34 +134,38 @@ export default class EditPages extends Component {
                 <div id="For_SetOpacity" className="AllContent" style={{ width: "100%" }}>
                     <NavbarComp ONToggle={() => this.ONToggleFunc()} ONEXPAND={this.state.NavExpended} Notificate={() => this.setState({ Shownotification: !this.state.Shownotification })} SidebarToggle={() => this.ShowingSideBar()} ChatBar={() => this.ChatSidebarFunc()} SearchBar={() => this.ShowSearchBar()} ToggleBTN={() => this.setState({ CollapseNavbar: !this.state.CollapseNavbar })} />
                     <div style={{ padding: 20, paddingTop: 1 }}>
-                        <div style={{ width: "100%", background: "white", position: "relative", borderRadius: 10, overflow: "scroll", overflowY: "hidden", overflowX: "scroll" }}>
-                            <div className="TimeLine_header">
-                                <b>Pages</b>
-                                {/* <Link><button style={{ marginLeft: 20, padding: 4, paddingLeft: 15, paddingRight: 15, color: "white", background: "#6e00ff", border: "none", borderRadius: 20, outline: "none" }}>Create &nbsp;<AddCircleOutline /></button></Link>
-                                <button style={{ marginLeft: 20, padding: 4, paddingLeft: 15, paddingRight: 15, color: "white", background: "#ff5630", border: "none", borderRadius: 20, outline: "none" }}>Delete &nbsp;<Delete /></button> */}
-                            </div>
-                            <div style={{ display: "flex", justifyContent: "flex-end", marginRight : 25, marginTop : 15 }}>
-                                <Button variant="link"><Link to="/Pages" style={{textDecoration : "none"}}>Preview</Link></Button>
-                                <Button variant="primary"><Link to="/Pages" style={{color : "white", textDecoration : "none"}}>Publish</Link></Button>
-                            </div>
-                            <div style={{ padding: 20, minHeight: 500 }}>
-                                <h3>Privacy Policy</h3><br />
-                                <CKEditor
-                                    editor={ClassicEditor}
-                                    data="<h4>Who we are</h4><br /><p>Our website address is https://s1.demo.opensourcecms.com/wordpress</p>"
-                                    onInit={editor => {
-                                        // You can store the "editor" and use when it is needed.
-                                        console.log('Editor is ready to use!', editor);
-                                    }}
-                                    onBlur={(event, editor) => {
-                                        console.log('Blur.', editor);
-                                    }}
-                                    onFocus={(event, editor) => {
-                                        console.log('Focus.', editor);
-                                    }}
-                                />
-                            </div>
+                        <div style={{ width: "100%", background: "white", position: "relative", borderRadius: 10, display: "flex", flexDirection: "column", padding: 20 }}>
+                            <h3>About Us</h3><br />
 
+                            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap" }}>
+                                <Form.Label>Title</Form.Label>
+                                <Form.Group controlId="exampleForm.ControlInput1" style={{ width: "80%" }}>
+                                    <Form.Control type="text" />
+                                </Form.Group>
+                            </div>
+                            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap" }}>
+                                <Form.Label>format</Form.Label>
+                                <Form.Group controlId="exampleForm.ControlSelect1" style={{ width: "80%" }}>
+                                    <Form.Control as="select">
+                                        <option>Plain Text</option>
+                                        <option>other</option>
+                                    </Form.Control>
+                                </Form.Group>
+                            </div>
+                            <div style={{ display: "flex", justifyContent: "space-between", flexWrap: "wrap" }}>
+                                <Form.Label>Text</Form.Label>
+                                <div style={{ display: "flex", flexDirection: "column", width: "80%" }}>
+                                    <div style={{ display: "flex", flexDirection: "row", marginBottom: 10 }}>
+                                        <button style={{ border: "2px solid skyblue", borderRadius: 15, background: "white", color: "blueviolet" }}><LibraryBooks />&nbsp; Insert Variable</button>
+                                        <button style={{ border: "2px solid skyblue", borderRadius: 15, marginLeft: 10, background: "white", color: "blueviolet" }}><Search />&nbsp; Preview</button>
+                                    </div>
+                                    <Form.Control as="textarea" rows="6" />
+                                </div>
+                            </div>
+                            <br />
+                            <div style={{ display: "flex", alignSelf: "flex-end" }}>
+                                <Button variant="primary">Save Changes</Button>&nbsp;
+                            </div>
                         </div>
                     </div>
                     <BottomTab />

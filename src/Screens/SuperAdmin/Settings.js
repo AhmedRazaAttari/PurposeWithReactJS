@@ -141,14 +141,14 @@ export default class AddEmailTemplate extends Component {
                                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap" }}>
                                     <div>
                                         <Payment />&nbsp;Paypal
-                                </div>
+                                    </div>
                                     <Link to="/Paypal"><button style={{ border: "2px solid skyblue", borderRadius: 5, background: "white", color: "blueviolet" }}>Edit...</button></Link>
                                 </div>
                                 <br />
                                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap" }}>
                                     <div>
                                         <AccountBalance />&nbsp;Stripe (credit card)
-                                </div>
+                                    </div>
                                     <Link to="/Stripe"><button style={{ border: "2px solid skyblue", borderRadius: 5, background: "white", color: "blueviolet" }}>Edit...</button></Link>
                                 </div>
                                 <br />
@@ -157,22 +157,22 @@ export default class AddEmailTemplate extends Component {
                                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap" }}>
                                     <div>
                                         <Facebook />&nbsp;facebook
-                                </div>
-                                    <button style={{ border: "2px solid skyblue", borderRadius: 5, background: "white", color: "blueviolet" }}>Edit...</button>
+                                    </div>
+                                    <button style={{ border: "2px solid skyblue", borderRadius: 5, background: "white", color: "blueviolet" }} onClick={() => this.setState({ facebook: true })}>Edit...</button>
                                 </div>
                                 <br />
                                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap" }}>
                                     <div>
                                         <Twitter />&nbsp;twitter
-                                </div>
-                                    <button style={{ border: "2px solid skyblue", borderRadius: 5, background: "white", color: "blueviolet" }}>Edit...</button>
+                                    </div>
+                                    <button style={{ border: "2px solid skyblue", borderRadius: 5, background: "white", color: "blueviolet" }} onClick={() => this.setState({ Twitter: true })}>Edit...</button>
                                 </div>
                                 <br />
                                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap" }}>
                                     <div>
                                         <LinkedIn />&nbsp;LinkedIn
-                                </div>
-                                    <button style={{ border: "2px solid skyblue", borderRadius: 5, background: "white", color: "blueviolet" }}>Edit...</button>
+                                    </div>
+                                    <button style={{ border: "2px solid skyblue", borderRadius: 5, background: "white", color: "blueviolet" }} onClick={() => this.setState({ LinkedIn: true })}>Edit...</button>
                                 </div>
                             </div>
                         </div>
@@ -211,7 +211,75 @@ export default class AddEmailTemplate extends Component {
             </div>
             {this.state.ShowChatSidebar && <ChatSideBar HideSidebar={() => this.hideChatSidebar()} />}
             {this.state.Shownotification && <TabNotification />}
-
+            {this.state.facebook && <Modal show={this.state.facebook} onHide={() => this.setState({ facebook: false })} style={{ background: "rgba(31,45,61,.3)" }} centered>
+                <Modal.Header closeButton>
+                    <Modal.Title>Facebook login</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <Form.Label>Email address</Form.Label>
+                    <Form.Group controlId="exampleForm.ControlInput1">
+                        <Form.Control type="email" />
+                    </Form.Group>
+                    <Form.Label>Password</Form.Label>
+                    <Form.Group controlId="exampleForm.ControlInput1">
+                        <Form.Control type="pasword" />
+                    </Form.Group>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="primary" onClick={() => this.setState({ facebook: false })}>
+                        Login
+                    </Button>
+                    <Button variant="secondary" onClick={() => this.setState({ facebook: false })}>
+                        Cancel
+                    </Button>
+                </Modal.Footer>
+            </Modal>}
+            {this.state.Twitter && <Modal show={this.state.Twitter} onHide={() => this.setState({ Twitter: false })} style={{ background: "rgba(31,45,61,.3)" }} centered>
+                <Modal.Header closeButton>
+                    <Modal.Title>Twitter login</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <Form.Label>Email address / Username</Form.Label>
+                    <Form.Group controlId="exampleForm.ControlInput1">
+                        <Form.Control type="email" />
+                    </Form.Group>
+                    <Form.Label>Password</Form.Label>
+                    <Form.Group controlId="exampleForm.ControlInput1">
+                        <Form.Control type="password" />
+                    </Form.Group>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="primary" onClick={() => this.setState({ Twitter: false })}>
+                        Login
+                    </Button>
+                    <Button variant="secondary" onClick={() => this.setState({ Twitter: false })}>
+                        Cancel
+                    </Button>
+                </Modal.Footer>
+            </Modal>}
+            {this.state.LinkedIn && <Modal show={this.state.LinkedIn} onHide={() => this.setState({ LinkedIn: false })} style={{ background: "rgba(31,45,61,.3)" }} centered>
+                <Modal.Header closeButton>
+                    <Modal.Title>LinkedIn login</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <Form.Label>Email address / Username</Form.Label>
+                    <Form.Group controlId="exampleForm.ControlInput1">
+                        <Form.Control type="email" />
+                    </Form.Group>
+                    <Form.Label>Password</Form.Label>
+                    <Form.Group controlId="exampleForm.ControlInput1" >
+                        <Form.Control type="password" />
+                    </Form.Group>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="primary" onClick={() => this.setState({ LinkedIn: false })}>
+                        Login
+                    </Button>
+                    <Button variant="secondary" onClick={() => this.setState({ LinkedIn: false })}>
+                        Cancel
+                    </Button>
+                </Modal.Footer>
+            </Modal>}
         </div>
     }
 }

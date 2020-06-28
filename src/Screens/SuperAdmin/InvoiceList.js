@@ -155,10 +155,12 @@ export default class AdminDashboard extends Component {
                                 <div>
                                     <b style={{ marginLeft: 20, color: "grey" }}>Filter</b>
                                     <Form.Control as="select" style={{ width: 140, marginLeft: 20 }}>
-                                        <option>Free</option>
-                                        <option>Paid</option>
-                                        <option>Active</option>
-                                        <option>Blocked</option>
+                                        <option>Acc-type-gold</option>
+                                        <option>Acc-type-silver</option>
+                                        <option>Acc-type-free</option>
+                                        <option>Status-Paid</option>
+                                        <option>Status-Pending</option>
+                                        <option>Status-Error</option>
                                     </Form.Control>
                                 </div>
                                 <div style={{ display: "flex", alignItems: "center" }}>

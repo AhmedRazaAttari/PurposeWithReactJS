@@ -31,7 +31,7 @@ import firebase from './config/firebaseConfig';
 import page404 from './Screens/page404';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-// import SuperAdminDashboard from './Screens/SuperAdmin/Dashboard';
+import SuperAdminInvoiceList from './Screens/SuperAdmin/InvoiceList';
 import SuperAdminPages from './Screens/SuperAdmin/Pages';
 import SuperAdminEditPages from './Screens/SuperAdmin/EditPages';
 import SuperAdminAllUsers from './Screens/SuperAdmin/AllUsers';
@@ -197,7 +197,7 @@ function App() {
       {/* <SuperAdminRoute path='/AllUsers' component={SuperAdminAllUsers} /> */}
       <SuperAdminRoute path='/UserDetail' component={SuperAdminUserDetail} />
       <SuperAdminRoute path='/UserTask' component={SuperAdminUserTask} />
-      <SuperAdminRoute path='/Invoice' component={SuperAdminInvoiceDesign} />
+      <SuperAdminRoute path='/Invoice' component={SuperAdminInvoiceList} />
       <SuperAdminRoute path='/Promotions' component={SuperAdminPromotions} />
       <SuperAdminRoute path='/AddPromotions' component={SuperAdminAddPromotions} />
       <SuperAdminRoute path='/EmailSubscribers' component={SuperAdminEmailSubscribers} />
