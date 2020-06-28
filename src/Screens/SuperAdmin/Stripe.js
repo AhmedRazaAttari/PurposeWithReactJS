@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 import { Search, Payment, Facebook, Twitter, LinkedIn, AccountBalance } from '@material-ui/icons';
 import '../../admin.css';
-import { Checkbox, TextField, FormControl, MenuItem, Select, RadioGroup, FormControlLabel, Radio  } from '@material-ui/core';
+import { Checkbox, TextField, FormControl, MenuItem, Select, RadioGroup, FormControlLabel, Radio } from '@material-ui/core';
 import { Form, Row, Col, Button, Modal } from 'react-bootstrap';
 
 export default class Stripe extends Component {
@@ -142,7 +142,7 @@ export default class Stripe extends Component {
                                 </div>
                                 <table style={{ width: "100%" }}>
                                     <tr>
-                                        <td><b>Availability</b></td>
+                                        <td style={{ textAlign: "left", paddingLeft: 20 }}><b>Availability</b></td>
                                         <td style={{ padding: 15 }}>
                                             <RadioGroup aria-label="gender" name="gender1">
                                                 <FormControlLabel value="Enable this payment method" control={<Radio />} label="Enable this payment method" />
@@ -152,7 +152,7 @@ export default class Stripe extends Component {
 
                                     </tr>
                                     <tr>
-                                        <td><b>Title</b></td>
+                                        <td style={{ textAlign: "left", paddingLeft: 20 }}><b>Title</b></td>
                                         <td style={{ padding: 10 }}>
                                             <Form.Group controlId="exampleForm.ControlInput1">
                                                 <Form.Control type="text" />
@@ -160,7 +160,7 @@ export default class Stripe extends Component {
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td><b>Order</b></td>
+                                        <td style={{ textAlign: "left", paddingLeft: 20 }}><b>Order</b></td>
                                         <td style={{ display: "flex", flexDirection: "column", padding: 7, textAlign: "left" }}>
                                             <Form.Group controlId="exampleForm.ControlInput1">
                                                 <Form.Control type="text" />
@@ -169,6 +169,60 @@ export default class Stripe extends Component {
                                         </td>
                                     </tr>
                                 </table>
+                            </div>
+                            <br />
+                            <div style={{ width: "100%", boxShadow: "#e0d5d5 0px 0px 5px 2px" }}>
+                                <div className="TimeLine_header">
+                                    <b>Stripe</b>
+                                </div>
+                                <table style={{ width: "100%" }}>
+                                    <tr>
+                                        <td style={{ textAlign: "left", paddingLeft: 20 }}><b>Secret Key</b></td>
+                                        <td style={{ padding: 10, paddingTop: 20 }}>
+                                            <Form.Group controlId="exampleForm.ControlInput1">
+                                                <Form.Control type="email" placeholder="test@example.com" />
+                                            </Form.Group>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style={{ textAlign: "left", paddingLeft: 20 }}><b>Publishable Key</b></td>
+                                        <td style={{ padding: 10, paddingTop: 20 }}>
+                                            <Form.Group controlId="exampleForm.ControlInput1">
+                                                <Form.Control type="email" placeholder="test@example.com" />
+                                            </Form.Group>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style={{ textAlign: "left", paddingLeft: 20 }}><b>Description</b></td>
+                                        <td style={{ display: "flex", flexDirection: "column", padding: 7, textAlign: "left" }}>
+                                            <Form.Group controlId="exampleForm.ControlInput1" >
+                                                <Form.Control type="email" placeholder="test@example.com" />
+                                            </Form.Group>
+                                            The %s will be replaced with ordered ID assigned by WPJobboard
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style={{ textAlign: "left", paddingLeft: 20 }}><b>Payment Description</b></td>
+                                        <td style={{ display: "flex", flexDirection: "column", padding: 7, textAlign: "left" }}>
+                                            <Form.Group controlId="exampleForm.ControlInput1" >
+                                                <Form.Control type="email" placeholder="test@example.com" />
+                                            </Form.Group>
+                                            Extra information about a charge. This will appears on your computer card's statement
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style={{ textAlign: "left", paddingLeft: 20 }}><b>Weebhook Endpoint</b></td>
+                                        <td style={{ padding: 10, paddingTop: 20 }}>
+                                            <Form.Group controlId="exampleForm.ControlInput1" >
+                                                <Form.Control type="email" placeholder="test@example.com" />
+                                            </Form.Group>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <br /><br />
+                            <div style={{ display: "flex", alignSelf: "flex-start" }}>
+                                <Button variant="primary">Update</Button>&nbsp;
                             </div>
                         </div>
                     </div>

@@ -140,10 +140,10 @@ export default class Paypal extends Component {
                                 <div className="TimeLine_header">
                                     <b>Configuration</b>
                                 </div>
-                                <table style={{width : "100%"}}>
+                                <table style={{ width: "100%" }}>
                                     <tr>
-                                        <td><b>Availability</b></td>
-                                        <td style={{padding : 15}}>
+                                        <td style={{textAlign : "left", paddingLeft : 20}}><b>Availability</b></td>
+                                        <td style={{ padding: 15 }}>
                                             <RadioGroup aria-label="gender" name="gender1">
                                                 <FormControlLabel value="Enable this payment method" control={<Radio />} label="Enable this payment method" />
                                                 <FormControlLabel value="Disable this payment method" control={<Radio />} label="Disable this payment method" />
@@ -152,16 +152,16 @@ export default class Paypal extends Component {
 
                                     </tr>
                                     <tr>
-                                        <td><b>Title</b></td>
-                                        <td style={{padding : 10}}>
+                                        <td style={{textAlign : "left", paddingLeft : 20}}><b>Title</b></td>
+                                        <td style={{ padding : 10, paddingTop : 20 }}>
                                             <Form.Group controlId="exampleForm.ControlInput1">
                                                 <Form.Control type="text" />
                                             </Form.Group>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td><b>Order</b></td>
-                                        <td style={{display : "flex", flexDirection : "column", padding : 7, textAlign : "left"}}>
+                                        <td style={{textAlign : "left", paddingLeft : 20}}><b>Order</b></td>
+                                        <td style={{ display: "flex", flexDirection: "column", padding: 7, textAlign: "left" }}>
                                             <Form.Group controlId="exampleForm.ControlInput1">
                                                 <Form.Control type="text" />
                                             </Form.Group>
@@ -169,6 +169,37 @@ export default class Paypal extends Component {
                                         </td>
                                     </tr>
                                 </table>
+                            </div>
+                            <br />
+                            <div style={{ width: "100%", boxShadow: "#e0d5d5 0px 0px 5px 2px" }}>
+                                <div className="TimeLine_header">
+                                    <b>Paypal</b>
+                                </div>
+                                <table style={{ width: "100%" }}>
+                                    <tr>
+                                        <td style={{textAlign : "left", paddingLeft : 20}}><b>Paypal Email</b></td>
+                                        <td style={{ padding : 10, paddingTop : 20 }}>
+                                            <Form.Group controlId="exampleForm.ControlInput1" style={{ width: "80%" }}>
+                                                <Form.Control type="email" placeholder="test@example.com" />
+                                            </Form.Group>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style={{textAlign : "left", paddingLeft : 20}}><b>Paypal Environment</b></td>
+                                        <td  style={{ padding : 10, paddingTop : 20 }}>
+                                            <Form.Group controlId="exampleForm.ControlSelect1" style={{ width: "80%" }}>
+                                                <Form.Control as="select">
+                                                    <option>Sandbox (for testing only)</option>
+                                                    <option>other</option>
+                                                </Form.Control>
+                                            </Form.Group>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <br /><br />
+                            <div style={{ display: "flex", alignSelf: "flex-start" }}>
+                                <Button variant="primary">Update</Button>&nbsp;
                             </div>
                         </div>
                     </div>
