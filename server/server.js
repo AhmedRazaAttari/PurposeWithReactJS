@@ -3,9 +3,10 @@ const app = express();
 const mongoose = require('./config/db');
 const db = mongoose.connection;
 const bodyParser = require('body-parser');
-const passport = require('./passportAuthentication');
 require('dotenv').config()
 var cors = require('cors')
+
+
 db.once('open', function () {
     console.log("Database Connected Successfully");
 });

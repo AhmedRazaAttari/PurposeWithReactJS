@@ -1,5 +1,6 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import './App.css';
+import Loading from './assets/images/loading.gif'
 import Dashboard from './Screens/Dashboard';
 import Notes from './Screens/Notes';
 import EmailVerification from './Screens/EmailVerification';
@@ -64,51 +65,121 @@ import { Redirect } from 'react-router'
 
 
 function App() {
-  const [count, setCount] = useState(true);
-  const [EmailVerified, setUserEmail_Verified] = useState(null);
-  const [userdata, setUser_data] = useState(null);
+  const [authentication, setAuthState] = useState({
+    authenticated: false,
+    EmailVerified: false,
+    isadmin: false,
+    initializing: true
+  });
+
+  React.useEffect(() => firebase.auth().onAuthStateChanged(user => {
+    if (user) {
+      fetch("https://purposewebapp.herokuapp.com/user/getProfile", {
+        method: "POST",
+        headers: {
+          "content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          Email: user.email,
+        })
+      }).then(r => r.json().then(data => {
+
+        if (!r.ok) {
+
+        }
+        else {
+          if (data.result) {
+            console.log(data)
+            setAuthState({
+              authenticated: true,
+              EmailVerified: data.result.EmailVerified,
+              isadmin: false,
+              initializing: false
+            })
+          }
+          else {
+            fetch("https://purposewebapp.herokuapp.com/admin/getProfile", {
+              method: "POST",
+              headers: {
+                "content-Type": "application/json"
+              },
+              body: JSON.stringify({
+                Email: user.email,
+              })
+            }).then(r2 => r2.json().then(data2 => {
+
+              if (!r2.ok) {
+
+              }
+              else {
+                if (data2.result) {
+                  setAuthState({
+                    authenticated: false,
+                    EmailVerified: true,
+                    isadmin: true,
+                    initializing: false
+                  })
+                }
+              }
+            }))
+
+          }
+        }
+
+      }))
+    }
+    else {
+      setAuthState({
+        authenticated: false,
+        EmailVerified: false,
+        isadmin: false,
+        initializing: false
+      })
+    }
+  }), [setAuthState]);
 
 
-  // function getCurrentUser() {
-  //   firebase.auth().onAuthStateChanged(function (user) {
-  //     if (user) {
-  //       fetch("https://purposewebapp.herokuapp.com/user/getProfile", {
-  //         method: "POST",
-  //         headers: {
-  //           "content-Type": "application/json"
-  //         },
-  //         body: JSON.stringify({
-  //           Email: user.email,
-  //         })
-  //       }).then(r => r.json().then(data => {
-  //         if (!r.ok) {
-  //         }
-  //         else {
-  //           // setCount(false)
-  //           setUser_data(data.result)
-  //           // setUserEmail_Verified(data.result.EmailVerified)
-  //           console.log(data)
-  //           console.log("FUNCTION CHALA OR USER HAI")
-  //         }
-  //       }))
-  //     }
-  //     else {
-  //       setUserEmail_Verified(null)
-  //       setUser_data(null)
-  //       console.log("FUNCTION CHALA BUT USER NULL HAI")
-  //       // setCount(false)
-  //     }
-  //   })
-  // }
-  // count && getCurrentUser();
+  const VerifyEmail = () => {
+    
+    firebase.auth().onAuthStateChanged(function (user) {
+      if (user) {
+
+        fetch("https://purposewebapp.herokuapp.com/user/getProfile", {
+          method: "POST",
+          headers: {
+            "content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            Email: user.email,
+          })
+        }).then(r => r.json().then(data => {
+          if (!r.ok) {
+          }
+          else {
+            if (data.result) {
+              fetch("https://purposewebapp.herokuapp.com/user/VerifyEmail", {
+                method: "POST",
+                headers: {
+                  "content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                  _id: data.result._id
+                })
+              })
+            }
+          }
+        }))
+      }
+    })
+  }
+
+
 
   const AuthRedirect = ({ component: Component, ...rest }) => {
 
-    const isEmail = localStorage.getItem('EmailVerified');
-    var SuperAdmin = localStorage.getItem('SuperAdmin');
     return (
       <Route {...rest} render={props =>
-        isEmail ? <Redirect to={{ pathname: "/EmailVerification" }} /> : [(SuperAdmin ? <Redirect to={{ pathname: "/AdminDashboard" }} /> : <Component {...props} {...rest} />)]
+        authentication.authenticated ? <Redirect to={{ pathname: "/EmailVerification" }} /> : [(authentication.isadmin ? <Redirect to={{ pathname: "/AdminDashboard" }} /> : <Component {...props} {...rest} />)]
       }
       />
     )
@@ -116,11 +187,9 @@ function App() {
 
   const EmailRoute = ({ component: Component, ...rest }) => {
 
-    const isEmail = localStorage.getItem('EmailVerified');
     return (
       <Route {...rest} render={props =>
-        !isEmail ? <Redirect to={{ pathname: "/login" }} /> : [(isEmail === true || isEmail === "true" ? <Redirect to={{ pathname: "/Dashboard" }} /> : <Component {...props} {...rest} />)]
-        // isEmail === true || isEmail === "true" ? <Redirect to={{ pathname: "/Dashboard" }} /> : <Component {...props} {...rest} />
+        !authentication.authenticated ? <Redirect to={{ pathname: "/login" }} /> : [(authentication.EmailVerified === true || authentication.EmailVerified === "true" ? <Redirect to={{ pathname: "/Dashboard" }} /> : <Component {...props} {...rest} />)]
       }
       />
     )
@@ -128,21 +197,18 @@ function App() {
 
   const ProtectedRoute = ({ component: Component, ...rest }) => {
 
-    var isEmail = localStorage.getItem('EmailVerified');
-
     return (
       <Route {...rest} render={(props => {
-        if (props.location.search.length > 6) {
+        if (props.location.search.length > 7) {
           console.log(props.location.search)
-
-          localStorage.setItem('EmailVerified', true)
-          isEmail = true
+          VerifyEmail()
           props.history.push('/Dashboard')
+          // window.location.reload()
         }
         else {
           console.log("NO PROP")
         }
-        return !isEmail ? <Redirect to={{ pathname: "/login" }} /> : [(isEmail === true || isEmail === "true" ? <Component {...props} {...rest} /> : <Redirect to={{ pathname: "/EmailVerification" }} />)]
+        return !authentication.authenticated ? <Redirect to={{ pathname: "/login" }} /> : [(authentication.EmailVerified === true || authentication.EmailVerified === "true" ? <Component {...props} {...rest} /> : <Redirect to={{ pathname: "/EmailVerification" }} />)]
       })
 
       }
@@ -152,11 +218,9 @@ function App() {
 
   const SuperAdminRoute = ({ component: Component, ...rest }) => {
 
-    var SuperAdmin = localStorage.getItem('SuperAdmin');
-
     return (
       <Route {...rest} render={props =>
-        SuperAdmin ? <Component {...props} {...rest} /> : <Redirect to={{ pathname: "/login" }} />
+        authentication.isadmin ? <Component {...props} {...rest} /> : <Redirect to={{ pathname: "/login" }} />
       }
       />
     )
@@ -164,6 +228,11 @@ function App() {
 
 
 
+  if (authentication.initializing) {
+    return <div style={{ display: "flex", flex: 1, justifyContent: "center", alignItems: "center", height: "100vh" }}>
+      <img src={Loading} />
+    </div>
+  }
 
   return <Router>
     <Switch>

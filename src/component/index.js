@@ -135,11 +135,7 @@ class NavbarComp extends Component {
     logoutUser() {
         firebase.auth().signOut().then(function () {
             // Sign-out successful.
-            localStorage.clear("EmailVerified")
-            localStorage.clear("Email")
-            localStorage.clear("_id")
-            localStorage.clear("SuperAdmin")
-            window.location.reload()
+            // window.location.reload()
         }).catch(function (error) {
             // An error happened.
         });
@@ -148,8 +144,6 @@ class NavbarComp extends Component {
     render() {
         return <Navbar expand="lg" id="NavbarCustomize" variant="dark" expanded={this.props.ONEXPAND} onToggle={this.props.ONToggle}>
             <div style={{ display: "flex", justifyContent: "space-between" }} id="SetWidthInSmall">
-                {/* <Navbar.Brand href="#" id="ResponsiveBtn"><Link to="/" style={{ color: "black" }}><img src={logo} width={150} /></Link></Navbar.Brand> */}
-                {/* <Navbar.Brand href="#" id="ResponsiveBtn"><img src={profilePic} style={{ width: 30, height: 30, borderRadius: "100%", marginLeft: -10, }} /></Navbar.Brand> */}
 
                 <div style={{ display: "flex", alignItems: "center", width: "100%", justifyContent: "space-between" }}>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" className="BtnOfToggle" onClick={this.props.ToggleBTN} />

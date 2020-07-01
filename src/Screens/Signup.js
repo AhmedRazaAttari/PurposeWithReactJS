@@ -103,15 +103,16 @@ export default class Signup extends Component {
                                             }
                                             else {
                                                 document.getElementById("ErrorDiv").style.display = "none";
-                                                localStorage.setItem("_id", data.user._id)
-                                                localStorage.setItem("Email", data.user.Email)
-                                                localStorage.setItem("EmailVerified", data.user.EmailVerified)
+                                                firebase.auth().currentUser.updateProfile({
+                                                    displayName : FName + " " + LName
+                                                })
+                                                
                                                 _.setState({
                                                     UserProfile: data.user,
                                                     fetching: false,
                                                     isloading: false,
                                                 })
-
+                                                window.location.reload()
                                             }
                                         }))
                                     }).catch(() => {

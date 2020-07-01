@@ -28,14 +28,15 @@ export default class Login extends Component {
             var re = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
             if (re.test(email)) {
 
-                if (email === "admin@gmail.com" && password === "12345678") {
-
-                    document.getElementById("errorScreen").innerText = "";
-                    localStorage.setItem("SuperAdmin", true)
-                    this.setState({
-                        fetching: false,
-                        isAdmin: true
-                    })
+                if (email === "superadmin@purpose.com" && password === "12345678") {
+                    var _ = this;
+                    firebase.auth().signInWithEmailAndPassword(email, password)
+                        .then(function (resolve) {
+                            _.setState({
+                                fetching: false,
+                                isAdmin: true
+                            })
+                        })
                 }
 
                 else {
@@ -45,40 +46,37 @@ export default class Login extends Component {
                         fetching: true
                     })
                     email = email.toLowerCase()
-                    fetch("https://purposewebapp.herokuapp.com/user/login", {
-                        method: "POST",
-                        headers: {
-                            "content-Type": "application/json"
-                        },
-                        body: JSON.stringify({
-                            Email: email,
-                            Password: password
-                        })
-                    }).then(r => r.json().then(data => {
-                        if (!r.ok) {
-                            _.setState({
-                                fetching: false
-                            })
-                            document.getElementById("ErrorDiv").style.display = "block";
-                            document.getElementById("errorScreen").innerText = "Incorrect email or password or both";
-                        }
-                        else {
-                            console.log(data.user[0].uid)
-                            document.getElementById("errorScreen").innerText = "";
-                            localStorage.setItem("_id", data.user[0]._id)
-                            localStorage.setItem("Email", data.user[0].Email)
-                            localStorage.setItem("EmailVerified", data.user[0].EmailVerified)
-
-
-                            firebase.auth().signInWithEmailAndPassword(email, password)
-                                .then(function (resolve) {
+                    firebase.auth().signInWithEmailAndPassword(email, password)
+                        .then(function (resolve) {
+                            document.getElementById("ErrorDiv").style.display = "none";
+                            fetch("https://purposewebapp.herokuapp.com/user/login", {
+                                method: "POST",
+                                headers: {
+                                    "content-Type": "application/json"
+                                },
+                                body: JSON.stringify({
+                                    Email: email,
+                                    Password: password
+                                })
+                            }).then(r => r.json().then(data => {
+                                if (!r.ok) {
+                                    _.setState({
+                                        fetching: false
+                                    })
+                                    document.getElementById("ErrorDiv").style.display = "block";
+                                    document.getElementById("errorScreen").innerText = "Incorrect email or password or both";
+                                }
+                                else {
+                                    // console.log(data.user[0].uid)
                                     return _.setState({
                                         fetching: false,
                                         isloading: false,
                                     })
-                                })
-                        }
-                    }))
+
+                                }
+                            }))
+                        })
+
                 }
 
             }
@@ -92,6 +90,8 @@ export default class Login extends Component {
             document.getElementById("errorScreen").innerText = "Please fill all fields first"
         }
     }
+
+
 
 
     render() {

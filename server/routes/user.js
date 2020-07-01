@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const User = require('../model/User');
 const bcrypt = require('bcrypt');
-const passport = require('../passportAuthentication');
 const jwt = require('jsonwebtoken');
 var nodeMailer = require('nodemailer');
 var cron = require('node-cron');
@@ -119,42 +118,6 @@ router.post("/register", async (req, res) => {
 })
 
 
-const sendResponse = function (error, user, info) {
-    const req = this.req;
-    const res = this.res;
-
-    if (error) {
-        const statusCode = error.statusCode || 500;
-        return res.status(statusCode).json(error)
-    }
-    req.login(user, (error) => {
-        if (error) {
-            const statusCode = error.statusCode || 500;
-            return res.status(statusCode).json(error)
-        }
-
-        return res.json({
-            message: 'Successfully processed authentication',
-            statusCode: 200
-        });
-    })
-}
-
-router.post('/Passlogin', (req, res, next) => {
-    const authenticate = passport.authenticate('local-signin', sendResponse.bind({
-        req,
-        res
-    }));
-    authenticate(req, res, next);
-});
-
-router.get('/logout', function (req, res) {
-    req.logout();
-    req.session = null;
-    res.send({ message: "Succesfully logout" })
-    // res.redirect('/');
-});
-
 router.post('/login', async (req, res) => {
     //Check Email
     const user = await User.find({ Email: req.body.Email });
@@ -189,13 +152,13 @@ router.post('/login', async (req, res) => {
 router.post('/getProfile', function (req, res) {
 
     User.findOne({ Email: req.body.Email })
-        .then((result) => {
+        .then(result => {
             return res.status(200).json({
                 result: result
             })
         })
-        .catch((error) => {
-            return res.send(401).json({
+        .catch(error => {
+            return res.send(404).json({
                 message: error
             })
         })
